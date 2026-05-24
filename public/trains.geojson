@@ -1,0 +1,3253 @@
+{
+  "type": "FeatureCollection",
+  "name": "Europäische grenzüberschreitende Fernzüge 2026",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "London – Paris",
+        "typ": "Hochgeschwindigkeit",
+        "zuggattung": "Eurostar",
+        "betreiber": "Eurostar",
+        "tageszeit": "Tag",
+        "dauer": "ca. 2h 15min",
+        "interrail": "aufpreis",
+        "buchung_url": "https://www.eurostar.com/",
+        "stationen": [
+          "London",
+          "Paris"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -0.1276,
+            51.5074
+          ],
+          [
+            2.3522,
+            48.8566
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "London – Brüssel",
+        "typ": "Hochgeschwindigkeit",
+        "zuggattung": "Eurostar",
+        "betreiber": "Eurostar",
+        "tageszeit": "Tag",
+        "dauer": "ca. 2h",
+        "interrail": "aufpreis",
+        "buchung_url": "https://www.eurostar.com/",
+        "stationen": [
+          "London",
+          "Brüssel"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -0.1276,
+            51.5074
+          ],
+          [
+            4.3517,
+            50.8503
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "London – Amsterdam",
+        "typ": "Hochgeschwindigkeit",
+        "zuggattung": "Eurostar",
+        "betreiber": "Eurostar",
+        "tageszeit": "Tag",
+        "dauer": "ca. 3h 55min",
+        "interrail": "aufpreis",
+        "buchung_url": "https://www.eurostar.com/",
+        "stationen": [
+          "London",
+          "Brüssel",
+          "Amsterdam"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -0.1276,
+            51.5074
+          ],
+          [
+            4.3517,
+            50.8503
+          ],
+          [
+            4.9041,
+            52.3676
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Paris – Amsterdam",
+        "typ": "Hochgeschwindigkeit",
+        "zuggattung": "Eurostar (ehem. Thalys)",
+        "betreiber": "Eurostar",
+        "tageszeit": "Tag",
+        "dauer": "ca. 3h 20min",
+        "interrail": "aufpreis",
+        "buchung_url": "https://www.eurostar.com/",
+        "stationen": [
+          "Paris",
+          "Brüssel",
+          "Amsterdam"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            2.3522,
+            48.8566
+          ],
+          [
+            4.3517,
+            50.8503
+          ],
+          [
+            4.9041,
+            52.3676
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Paris – Köln",
+        "typ": "Hochgeschwindigkeit",
+        "zuggattung": "Eurostar (ehem. Thalys)",
+        "betreiber": "Eurostar",
+        "tageszeit": "Tag",
+        "dauer": "ca. 3h 20min",
+        "interrail": "aufpreis",
+        "buchung_url": "https://www.eurostar.com/",
+        "stationen": [
+          "Paris",
+          "Brüssel",
+          "Aachen"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            2.3522,
+            48.8566
+          ],
+          [
+            4.3517,
+            50.8503
+          ],
+          [
+            6.0839,
+            50.7753
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Paris – Dortmund",
+        "typ": "Hochgeschwindigkeit",
+        "zuggattung": "Eurostar (ehem. Thalys)",
+        "betreiber": "Eurostar",
+        "tageszeit": "Tag",
+        "dauer": "ca. 3h 45min",
+        "interrail": "aufpreis",
+        "buchung_url": "https://www.eurostar.com/",
+        "stationen": [
+          "Paris",
+          "Brüssel",
+          "Aachen",
+          "Duisburg",
+          "Dortmund"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            2.3522,
+            48.8566
+          ],
+          [
+            4.3517,
+            50.8503
+          ],
+          [
+            6.0839,
+            50.7753
+          ],
+          [
+            6.7735,
+            51.5136
+          ],
+          [
+            7.4653,
+            51.5144
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Amsterdam – Berlin",
+        "typ": "Hochgeschwindigkeit",
+        "zuggattung": "ICE",
+        "betreiber": "DB / NS",
+        "tageszeit": "Tag",
+        "dauer": "ca. 6h",
+        "interrail": "ja",
+        "buchung_url": "https://int.bahn.de/en",
+        "stationen": [
+          "Amsterdam",
+          "Enschede",
+          "Minden",
+          "Berlin"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4.9041,
+            52.3676
+          ],
+          [
+            6.8649,
+            52.2112
+          ],
+          [
+            8.8017,
+            52.3759
+          ],
+          [
+            13.3888,
+            52.517
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Amsterdam – Frankfurt",
+        "typ": "Hochgeschwindigkeit",
+        "zuggattung": "ICE",
+        "betreiber": "DB / NS",
+        "tageszeit": "Tag",
+        "dauer": "ca. 4h",
+        "interrail": "ja",
+        "buchung_url": "https://int.bahn.de/en",
+        "stationen": [
+          "Amsterdam",
+          "Aachen",
+          "Frankfurt am Main"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4.9041,
+            52.3676
+          ],
+          [
+            6.0839,
+            50.7753
+          ],
+          [
+            8.6821,
+            50.1109
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Paris – Berlin",
+        "typ": "Hochgeschwindigkeit",
+        "zuggattung": "ICE",
+        "betreiber": "DB / SNCF",
+        "tageszeit": "Tag",
+        "bemerkung": "Neue Route via Erfurt/Halle seit Dez 2025",
+        "dauer": "ca. 8h",
+        "interrail": "aufpreis",
+        "buchung_url": "https://int.bahn.de/en",
+        "stationen": [
+          "Paris",
+          "Basel",
+          "Frankfurt am Main",
+          "Erfurt",
+          "Halle (Saale)",
+          "Berlin"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            2.3522,
+            48.8566
+          ],
+          [
+            7.5886,
+            47.5596
+          ],
+          [
+            8.6821,
+            50.1109
+          ],
+          [
+            10.9228,
+            50.9787
+          ],
+          [
+            11.9906,
+            51.4825
+          ],
+          [
+            13.3888,
+            52.517
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Frankfurt – Basel",
+        "typ": "Hochgeschwindigkeit",
+        "zuggattung": "ICE",
+        "betreiber": "DB / SBB",
+        "tageszeit": "Tag",
+        "dauer": "ca. 3h",
+        "interrail": "ja",
+        "buchung_url": "https://www.bahn.de/",
+        "stationen": [
+          "Frankfurt am Main",
+          "Basel"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.6821,
+            50.1109
+          ],
+          [
+            7.5886,
+            47.5596
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Köln – Chur",
+        "typ": "Hochgeschwindigkeit",
+        "zuggattung": "ICE",
+        "betreiber": "DB / SBB",
+        "tageszeit": "Tag",
+        "bemerkung": "Neu ab Dez 2025",
+        "dauer": "ca. 5h 30min",
+        "interrail": "ja",
+        "buchung_url": "https://www.bahn.de/",
+        "stationen": [
+          "Aachen",
+          "Basel",
+          "Arth-Goldau",
+          "Chur"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            6.0839,
+            50.7753
+          ],
+          [
+            7.5886,
+            47.5596
+          ],
+          [
+            8.9203,
+            46.8508
+          ],
+          [
+            9.5307,
+            46.8499
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Dortmund – Brig",
+        "typ": "Hochgeschwindigkeit",
+        "zuggattung": "ICE",
+        "betreiber": "DB / SBB",
+        "tageszeit": "Tag",
+        "bemerkung": "Neu ab Dez 2025",
+        "dauer": "ca. 6h",
+        "interrail": "ja",
+        "buchung_url": "https://www.bahn.de/",
+        "stationen": [
+          "Dortmund",
+          "Aachen",
+          "Basel",
+          "Brig"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.4653,
+            51.5144
+          ],
+          [
+            6.0839,
+            50.7753
+          ],
+          [
+            7.5886,
+            47.5596
+          ],
+          [
+            7.9272,
+            46.3166
+          ],
+          [
+            7.9876,
+            46.3189
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Antwerpen – Köln",
+        "typ": "Hochgeschwindigkeit",
+        "zuggattung": "ICE",
+        "betreiber": "DB",
+        "tageszeit": "Tag",
+        "bemerkung": "Neu ab Sept 2026",
+        "dauer": "ca. 1h 30min",
+        "interrail": "ja",
+        "buchung_url": "https://www.bahn.de/",
+        "stationen": [
+          "Antwerpen",
+          "Brüssel",
+          "Lüttich",
+          "Aachen"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4.4025,
+            51.2194
+          ],
+          [
+            4.3517,
+            50.8503
+          ],
+          [
+            5.5673,
+            50.6326
+          ],
+          [
+            6.0839,
+            50.7753
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Paris – Barcelona",
+        "typ": "Hochgeschwindigkeit",
+        "zuggattung": "TGV / Frecciarossa",
+        "betreiber": "SNCF / Renfe / Trenitalia",
+        "tageszeit": "Tag",
+        "dauer": "ca. 6h 30min",
+        "interrail": "aufpreis",
+        "buchung_url": "https://www.sncf-connect.com/",
+        "stationen": [
+          "Paris",
+          "Carcassonne",
+          "Barcelona"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            2.3522,
+            48.8566
+          ],
+          [
+            2.1734,
+            43.3
+          ],
+          [
+            2.1686,
+            41.3888
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Paris – Zürich",
+        "typ": "Hochgeschwindigkeit",
+        "zuggattung": "TGV Lyria",
+        "betreiber": "SNCF / SBB",
+        "tageszeit": "Tag",
+        "dauer": "ca. 4h",
+        "interrail": "aufpreis",
+        "buchung_url": "https://www.sncf-connect.com/",
+        "stationen": [
+          "Paris",
+          "Delémont",
+          "Zürich"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            2.3522,
+            48.8566
+          ],
+          [
+            7.4458,
+            47.3686
+          ],
+          [
+            8.5401,
+            47.3769
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Paris – Genf",
+        "typ": "Hochgeschwindigkeit",
+        "zuggattung": "TGV Lyria",
+        "betreiber": "SNCF / SBB",
+        "tageszeit": "Tag",
+        "dauer": "ca. 3h 30min",
+        "interrail": "aufpreis",
+        "buchung_url": "https://www.sncf-connect.com/",
+        "stationen": [
+          "Paris",
+          "Genf"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            2.3522,
+            48.8566
+          ],
+          [
+            6.1432,
+            46.2044
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Paris – Basel",
+        "typ": "Hochgeschwindigkeit",
+        "zuggattung": "TGV Lyria",
+        "betreiber": "SNCF / SBB",
+        "tageszeit": "Tag",
+        "dauer": "ca. 2h 20min",
+        "interrail": "aufpreis",
+        "buchung_url": "https://www.sncf-connect.com/",
+        "stationen": [
+          "Paris",
+          "Basel"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            2.3522,
+            48.8566
+          ],
+          [
+            7.5886,
+            47.5596
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Paris – Stuttgart",
+        "typ": "Hochgeschwindigkeit",
+        "zuggattung": "TGV",
+        "betreiber": "SNCF",
+        "tageszeit": "Tag",
+        "dauer": "ca. 3h 15min",
+        "interrail": "aufpreis",
+        "buchung_url": "https://www.sncf-connect.com/",
+        "stationen": [
+          "Paris",
+          "Straßburg",
+          "Stuttgart"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            2.3522,
+            48.8566
+          ],
+          [
+            7.7521,
+            48.5734
+          ],
+          [
+            9.177,
+            48.7758
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Paris – München",
+        "typ": "Hochgeschwindigkeit",
+        "zuggattung": "TGV",
+        "betreiber": "SNCF",
+        "tageszeit": "Tag",
+        "dauer": "ca. 5h 50min",
+        "interrail": "aufpreis",
+        "buchung_url": "https://www.sncf-connect.com/",
+        "stationen": [
+          "Paris",
+          "Straßburg",
+          "Stuttgart",
+          "München"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            2.3522,
+            48.8566
+          ],
+          [
+            7.7521,
+            48.5734
+          ],
+          [
+            9.177,
+            48.7758
+          ],
+          [
+            11.582,
+            48.1351
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Lausanne – Marseille",
+        "typ": "Hochgeschwindigkeit",
+        "zuggattung": "TGV Lyria",
+        "betreiber": "SNCF / SBB",
+        "tageszeit": "Tag",
+        "bemerkung": "Saisonal, Do–Mo Apr–Okt",
+        "dauer": "ca. 3h 30min",
+        "interrail": "aufpreis",
+        "buchung_url": "https://www.sncf-connect.com/",
+        "stationen": [
+          "Lausanne",
+          "Lyon",
+          "Arles",
+          "Marseille",
+          "(5.3698,43.2965)"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            6.6323,
+            46.5197
+          ],
+          [
+            5.044,
+            45.74
+          ],
+          [
+            4.8357,
+            45.764
+          ],
+          [
+            4.8405,
+            43.8367
+          ],
+          [
+            5.3698,
+            43.2965
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Paris – Mailand",
+        "typ": "Hochgeschwindigkeit",
+        "zuggattung": "Frecciarossa",
+        "betreiber": "Trenitalia / SNCF",
+        "tageszeit": "Tag",
+        "dauer": "ca. 7h",
+        "interrail": "aufpreis",
+        "buchung_url": "https://www.sncf-connect.com/",
+        "stationen": [
+          "Paris",
+          "Turin",
+          "Mailand"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            2.3522,
+            48.8566
+          ],
+          [
+            6.6906,
+            45.0703
+          ],
+          [
+            9.1895,
+            45.4654
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Wien – München",
+        "typ": "Hochgeschwindigkeit",
+        "zuggattung": "Railjet",
+        "betreiber": "ÖBB",
+        "tageszeit": "Tag",
+        "dauer": "ca. 4h",
+        "interrail": "ja",
+        "buchung_url": "https://tickets.oebb.at/",
+        "stationen": [
+          "Wien",
+          "Salzburg",
+          "München"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            16.3738,
+            48.2082
+          ],
+          [
+            13.08,
+            47.8095
+          ],
+          [
+            11.582,
+            48.1351
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Wien – Budapest",
+        "typ": "Hochgeschwindigkeit",
+        "zuggattung": "Railjet",
+        "betreiber": "ÖBB / MÁV",
+        "tageszeit": "Tag",
+        "dauer": "ca. 2h 30min",
+        "interrail": "ja",
+        "buchung_url": "https://tickets.oebb.at/",
+        "stationen": [
+          "Wien",
+          "Bratislava",
+          "Budapest"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            16.3738,
+            48.2082
+          ],
+          [
+            17.1077,
+            48.1443
+          ],
+          [
+            18.9232,
+            47.4979
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Wien – Prag",
+        "typ": "Hochgeschwindigkeit",
+        "zuggattung": "Railjet",
+        "betreiber": "ÖBB / CD",
+        "tageszeit": "Tag",
+        "dauer": "ca. 4h",
+        "interrail": "ja",
+        "buchung_url": "https://tickets.oebb.at/",
+        "stationen": [
+          "Wien",
+          "Mistelbach",
+          "Prag"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            16.3738,
+            48.2082
+          ],
+          [
+            16.6068,
+            48.596
+          ],
+          [
+            14.4208,
+            50.088
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Wien – Zürich",
+        "typ": "Hochgeschwindigkeit",
+        "zuggattung": "Railjet",
+        "betreiber": "ÖBB / SBB",
+        "tageszeit": "Tag",
+        "dauer": "ca. 8h 30min",
+        "interrail": "ja",
+        "buchung_url": "https://tickets.oebb.at/",
+        "stationen": [
+          "Wien",
+          "Steyr",
+          "Salzburg",
+          "Dornbirn",
+          "Zürich"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            16.3738,
+            48.2082
+          ],
+          [
+            14.2858,
+            47.8095
+          ],
+          [
+            13.0446,
+            47.8011
+          ],
+          [
+            9.7441,
+            47.424
+          ],
+          [
+            8.5401,
+            47.3769
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Wien – Trieste",
+        "typ": "Hochgeschwindigkeit",
+        "zuggattung": "Railjet",
+        "betreiber": "ÖBB",
+        "tageszeit": "Tag",
+        "bemerkung": "Neu 2026 via Graz",
+        "dauer": "ca. 5h",
+        "interrail": "ja",
+        "buchung_url": "https://tickets.oebb.at/",
+        "stationen": [
+          "Wien",
+          "Graz",
+          "Triest"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            16.3738,
+            48.2082
+          ],
+          [
+            15.4395,
+            47.0707
+          ],
+          [
+            13.7681,
+            45.6495
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Prag – Graz",
+        "typ": "Hochgeschwindigkeit",
+        "zuggattung": "Railjet",
+        "betreiber": "ÖBB / CD",
+        "tageszeit": "Tag",
+        "bemerkung": "Verlängert 2026 via Klagenfurt",
+        "dauer": "ca. 7h",
+        "interrail": "ja",
+        "buchung_url": "https://tickets.oebb.at/",
+        "stationen": [
+          "Prag",
+          "Wien",
+          "Graz"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            14.4208,
+            50.088
+          ],
+          [
+            16.3738,
+            48.2082
+          ],
+          [
+            15.4395,
+            47.0707
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Zürich – Mailand",
+        "typ": "Hochgeschwindigkeit",
+        "zuggattung": "Giruno",
+        "betreiber": "SBB / Trenitalia",
+        "tageszeit": "Tag",
+        "dauer": "ca. 3h 20min",
+        "interrail": "ja",
+        "buchung_url": "https://www.sbb.ch/en/buying/pages/fahrplan/fahrplan.xhtml",
+        "stationen": [
+          "Zürich",
+          "Lugano",
+          "Mailand"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.5401,
+            47.3769
+          ],
+          [
+            8.9518,
+            46.0037
+          ],
+          [
+            9.1895,
+            45.4654
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Zürich – Florenz",
+        "typ": "Hochgeschwindigkeit",
+        "zuggattung": "Giruno",
+        "betreiber": "SBB / Trenitalia",
+        "tageszeit": "Tag",
+        "bemerkung": "Verlängert seit Dez 2025",
+        "dauer": "ca. 4h 30min",
+        "interrail": "ja",
+        "buchung_url": "https://www.sbb.ch/en/buying/pages/fahrplan/fahrplan.xhtml",
+        "stationen": [
+          "Zürich",
+          "Lugano",
+          "Mailand",
+          "Bologna",
+          "Florenz"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.5401,
+            47.3769
+          ],
+          [
+            8.9518,
+            46.0037
+          ],
+          [
+            9.1895,
+            45.4654
+          ],
+          [
+            11.2558,
+            44.4949
+          ],
+          [
+            11.2558,
+            43.7696
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hamburg – Kopenhagen",
+        "typ": "EuroCity",
+        "zuggattung": "EC / Talgo 230",
+        "betreiber": "DSB / DB",
+        "tageszeit": "Tag",
+        "bemerkung": "Neue Talgo-230-Züge seit Nov 2025",
+        "dauer": "ca. 4h 30min",
+        "interrail": "ja",
+        "buchung_url": "https://int.bahn.de/en",
+        "stationen": [
+          "Hamburg",
+          "Schleswig",
+          "Flensburg",
+          "Kolding",
+          "Odense",
+          "Kopenhagen"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            9.9945,
+            53.5753
+          ],
+          [
+            9.972,
+            54.7792
+          ],
+          [
+            9.5568,
+            54.8336
+          ],
+          [
+            9.9205,
+            55.4038
+          ],
+          [
+            10.3764,
+            55.4031
+          ],
+          [
+            12.5683,
+            55.6761
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Prag – Kopenhagen",
+        "typ": "EuroCity",
+        "zuggattung": "ComfortJet",
+        "betreiber": "CD / DB / DSB",
+        "tageszeit": "Tag",
+        "bemerkung": "Neu ab Juni 2026",
+        "dauer": "ca. 9h",
+        "interrail": "ja",
+        "buchung_url": "https://int.bahn.de/en",
+        "stationen": [
+          "Prag",
+          "Dresden",
+          "Berlin",
+          "Hamburg",
+          "Kopenhagen"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            14.4208,
+            50.088
+          ],
+          [
+            13.7379,
+            50.9145
+          ],
+          [
+            13.3888,
+            52.517
+          ],
+          [
+            9.9945,
+            53.5753
+          ],
+          [
+            12.5683,
+            55.6761
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hamburg – Budapest",
+        "typ": "EuroCity",
+        "zuggattung": "ComfortJet / EC",
+        "betreiber": "DB / CD / MÁV",
+        "tageszeit": "Tag",
+        "dauer": "ca. 11h",
+        "interrail": "ja",
+        "buchung_url": "https://int.bahn.de/en",
+        "stationen": [
+          "Hamburg",
+          "Berlin",
+          "Dresden",
+          "Prag",
+          "Mistelbach",
+          "Wien",
+          "Bratislava",
+          "Budapest"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            9.9945,
+            53.5753
+          ],
+          [
+            13.3888,
+            52.517
+          ],
+          [
+            13.7379,
+            50.9145
+          ],
+          [
+            14.4208,
+            50.088
+          ],
+          [
+            16.6068,
+            48.596
+          ],
+          [
+            16.3738,
+            48.2082
+          ],
+          [
+            17.1077,
+            48.1443
+          ],
+          [
+            18.9232,
+            47.4979
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "München – Zagreb",
+        "typ": "EuroCity",
+        "zuggattung": "EC",
+        "betreiber": "ÖBB / HŽ",
+        "tageszeit": "Tag",
+        "bemerkung": "Wiederhergestellt 2026",
+        "dauer": "ca. 6h 30min",
+        "interrail": "ja",
+        "buchung_url": "https://tickets.oebb.at/",
+        "stationen": [
+          "München",
+          "Salzburg",
+          "Triest",
+          "Laibach",
+          "Zagreb"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            11.582,
+            48.1351
+          ],
+          [
+            13.08,
+            47.8095
+          ],
+          [
+            13.0446,
+            47.8011
+          ],
+          [
+            13.7681,
+            45.6495
+          ],
+          [
+            14.1453,
+            46.0628
+          ],
+          [
+            14.5058,
+            46.0569
+          ],
+          [
+            15.9819,
+            45.815
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Wien – Zagreb",
+        "typ": "EuroCity",
+        "zuggattung": "EC",
+        "betreiber": "ÖBB / SŽ / HŽ",
+        "tageszeit": "Tag",
+        "bemerkung": "Wiederhergestellt 2026",
+        "dauer": "ca. 6h 30min",
+        "interrail": "ja",
+        "buchung_url": "https://tickets.oebb.at/",
+        "stationen": [
+          "Wien",
+          "Graz",
+          "Maribor",
+          "Zagreb"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            16.3738,
+            48.2082
+          ],
+          [
+            15.4395,
+            47.0707
+          ],
+          [
+            15.6467,
+            46.5547
+          ],
+          [
+            15.9819,
+            45.815
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Wien – Bratislava",
+        "typ": "EuroCity",
+        "zuggattung": "EC",
+        "betreiber": "ÖBB / ZSSK",
+        "tageszeit": "Tag",
+        "bemerkung": "+ 3 neue EC-Paare ab 2026",
+        "dauer": "ca. 1h",
+        "interrail": "ja",
+        "buchung_url": "https://tickets.oebb.at/",
+        "stationen": [
+          "Wien",
+          "Bratislava"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            16.3738,
+            48.2082
+          ],
+          [
+            17.1077,
+            48.1443
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Leipzig – Krakau",
+        "typ": "EuroCity",
+        "zuggattung": "EC",
+        "betreiber": "DB / PKP",
+        "tageszeit": "Tag",
+        "bemerkung": "Neu ab Dez 2025; ein Zug bis Przemyśl",
+        "dauer": "ca. 7h",
+        "interrail": "ja",
+        "buchung_url": "https://www.bahn.de/",
+        "stationen": [
+          "Leipzig",
+          "Breslau",
+          "Krakau"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.3731,
+            51.3397
+          ],
+          [
+            17.0385,
+            51.1079
+          ],
+          [
+            19.9449,
+            50.0647
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Berlin – Warschau",
+        "typ": "EuroCity",
+        "zuggattung": "EC",
+        "betreiber": "DB / PKP",
+        "tageszeit": "Tag",
+        "dauer": "ca. 5h 30min",
+        "interrail": "ja",
+        "buchung_url": "https://www.bahn.de/",
+        "stationen": [
+          "Berlin",
+          "Posen",
+          "Warschau"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            13.3888,
+            52.517
+          ],
+          [
+            16.9252,
+            52.4064
+          ],
+          [
+            21.0122,
+            52.2297
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Zürich – Venedig",
+        "typ": "EuroCity",
+        "zuggattung": "EC",
+        "betreiber": "SBB / Trenitalia",
+        "tageszeit": "Tag",
+        "dauer": "ca. 4h",
+        "interrail": "ja",
+        "buchung_url": "https://www.sbb.ch/en/buying/pages/fahrplan/fahrplan.xhtml",
+        "stationen": [
+          "Zürich",
+          "Mailand",
+          "Venedig"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.5401,
+            47.3769
+          ],
+          [
+            9.1895,
+            45.4654
+          ],
+          [
+            12.3155,
+            45.4408
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Zürich – Genua",
+        "typ": "EuroCity",
+        "zuggattung": "EC",
+        "betreiber": "SBB / Trenitalia",
+        "tageszeit": "Tag",
+        "dauer": "ca. 4h 30min",
+        "interrail": "ja",
+        "buchung_url": "https://www.sbb.ch/en/buying/pages/fahrplan/fahrplan.xhtml",
+        "stationen": [
+          "Zürich",
+          "Mailand",
+          "Genua"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.5401,
+            47.3769
+          ],
+          [
+            9.1895,
+            45.4654
+          ],
+          [
+            8.934,
+            44.4056
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Graz – Rom",
+        "typ": "EuroCity",
+        "zuggattung": "EC",
+        "betreiber": "ÖBB / Trenitalia",
+        "tageszeit": "Tag",
+        "bemerkung": "Neu 2026 via neue Südstrecke",
+        "dauer": "ca. 10h",
+        "interrail": "ja",
+        "buchung_url": "https://tickets.oebb.at/",
+        "stationen": [
+          "Graz",
+          "Triest",
+          "Venedig",
+          "Bologna",
+          "Rom"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            15.4395,
+            47.0707
+          ],
+          [
+            13.7681,
+            45.6495
+          ],
+          [
+            12.3155,
+            45.4408
+          ],
+          [
+            11.3426,
+            44.4949
+          ],
+          [
+            12.4964,
+            41.9028
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Graz – Florenz",
+        "typ": "EuroCity",
+        "zuggattung": "EC",
+        "betreiber": "ÖBB / Trenitalia",
+        "tageszeit": "Tag",
+        "bemerkung": "Neu 2026",
+        "dauer": "ca. 7h",
+        "interrail": "ja",
+        "buchung_url": "https://tickets.oebb.at/",
+        "stationen": [
+          "Graz",
+          "Triest",
+          "Venedig",
+          "Florenz"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            15.4395,
+            47.0707
+          ],
+          [
+            13.7681,
+            45.6495
+          ],
+          [
+            12.3155,
+            45.4408
+          ],
+          [
+            11.2558,
+            43.7696
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "München – Prag",
+        "typ": "EuroCity",
+        "zuggattung": "EC",
+        "betreiber": "DB / CD",
+        "tageszeit": "Tag",
+        "dauer": "ca. 6h",
+        "interrail": "ja",
+        "buchung_url": "https://www.bahn.de/",
+        "stationen": [
+          "München",
+          "Passau",
+          "Prag"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            11.582,
+            48.1351
+          ],
+          [
+            13.4072,
+            48.5672
+          ],
+          [
+            14.4208,
+            50.088
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Wien – Hamburg (Nightjet)",
+        "typ": "Nachtzug",
+        "zuggattung": "Nightjet",
+        "betreiber": "ÖBB",
+        "tageszeit": "Nacht",
+        "bemerkung": "NJ New Generation",
+        "dauer": "ca. 11h",
+        "interrail": "aufpreis",
+        "buchung_url": "https://www.nightjet.com/",
+        "stationen": [
+          "Wien",
+          "Salzburg",
+          "München",
+          "Hamburg"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            16.3738,
+            48.2082
+          ],
+          [
+            13.08,
+            47.8095
+          ],
+          [
+            11.582,
+            48.1351
+          ],
+          [
+            9.9945,
+            53.5753
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Wien – Düsseldorf (Nightjet)",
+        "typ": "Nachtzug",
+        "zuggattung": "Nightjet",
+        "betreiber": "ÖBB",
+        "tageszeit": "Nacht",
+        "dauer": "ca. 12h",
+        "interrail": "aufpreis",
+        "buchung_url": "https://www.nightjet.com/",
+        "stationen": [
+          "Wien",
+          "Salzburg",
+          "München",
+          "Frankfurt am Main",
+          "Düsseldorf"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            16.3738,
+            48.2082
+          ],
+          [
+            13.08,
+            47.8095
+          ],
+          [
+            11.582,
+            48.1351
+          ],
+          [
+            8.6821,
+            50.1109
+          ],
+          [
+            6.7735,
+            51.2217
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Wien – Berlin (Nightjet)",
+        "typ": "Nachtzug",
+        "zuggattung": "Nightjet",
+        "betreiber": "ÖBB",
+        "tageszeit": "Nacht",
+        "bemerkung": "Via Prag/Dresden",
+        "dauer": "ca. 9h 30min",
+        "interrail": "aufpreis",
+        "buchung_url": "https://www.nightjet.com/",
+        "stationen": [
+          "Wien",
+          "Mistelbach",
+          "Prag",
+          "Dresden",
+          "Berlin"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            16.3738,
+            48.2082
+          ],
+          [
+            16.6068,
+            48.596
+          ],
+          [
+            14.4208,
+            50.088
+          ],
+          [
+            13.7379,
+            50.9145
+          ],
+          [
+            13.3888,
+            52.517
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Wien – Amsterdam (Nightjet)",
+        "typ": "Nachtzug",
+        "zuggattung": "Nightjet",
+        "betreiber": "ÖBB",
+        "tageszeit": "Nacht",
+        "bemerkung": "NJ New Generation 2026",
+        "dauer": "ca. 15h",
+        "interrail": "aufpreis",
+        "buchung_url": "https://www.nightjet.com/",
+        "stationen": [
+          "Wien",
+          "Salzburg",
+          "München",
+          "Frankfurt am Main",
+          "Amsterdam"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            16.3738,
+            48.2082
+          ],
+          [
+            13.08,
+            47.8095
+          ],
+          [
+            11.582,
+            48.1351
+          ],
+          [
+            8.6821,
+            50.1109
+          ],
+          [
+            4.9041,
+            52.3676
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Zürich – Hamburg (Nightjet)",
+        "typ": "Nachtzug",
+        "zuggattung": "Nightjet",
+        "betreiber": "ÖBB",
+        "tageszeit": "Nacht",
+        "bemerkung": "NJ New Generation seit Dez 2025",
+        "dauer": "ca. 11h",
+        "interrail": "aufpreis",
+        "buchung_url": "https://www.nightjet.com/",
+        "stationen": [
+          "Zürich",
+          "Basel",
+          "Frankfurt am Main",
+          "Hamburg"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.5401,
+            47.3769
+          ],
+          [
+            7.5886,
+            47.5596
+          ],
+          [
+            8.6821,
+            50.1109
+          ],
+          [
+            9.9945,
+            53.5753
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Zürich – Amsterdam (Nightjet)",
+        "typ": "Nachtzug",
+        "zuggattung": "Nightjet",
+        "betreiber": "ÖBB",
+        "tageszeit": "Nacht",
+        "bemerkung": "NJ New Generation 2026",
+        "dauer": "ca. 14h",
+        "interrail": "aufpreis",
+        "buchung_url": "https://www.nightjet.com/",
+        "stationen": [
+          "Zürich",
+          "Basel",
+          "Frankfurt am Main",
+          "Amsterdam"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.5401,
+            47.3769
+          ],
+          [
+            7.5886,
+            47.5596
+          ],
+          [
+            8.6821,
+            50.1109
+          ],
+          [
+            4.9041,
+            52.3676
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Zürich – Wien (Nightjet)",
+        "typ": "Nachtzug",
+        "zuggattung": "Nightjet",
+        "betreiber": "ÖBB",
+        "tageszeit": "Nacht",
+        "bemerkung": "NJ New Generation 2026",
+        "dauer": "ca. 8h 30min",
+        "interrail": "aufpreis",
+        "buchung_url": "https://www.nightjet.com/",
+        "stationen": [
+          "Zürich",
+          "Dornbirn",
+          "Salzburg",
+          "Bruck a.d. Mur",
+          "Wien"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.5401,
+            47.3769
+          ],
+          [
+            9.7441,
+            47.424
+          ],
+          [
+            13.0446,
+            47.8011
+          ],
+          [
+            15.2993,
+            47.8095
+          ],
+          [
+            16.3738,
+            48.2082
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Wien – Rom (Nightjet)",
+        "typ": "Nachtzug",
+        "zuggattung": "Nightjet",
+        "betreiber": "ÖBB",
+        "tageszeit": "Nacht",
+        "dauer": "ca. 13h",
+        "interrail": "aufpreis",
+        "buchung_url": "https://www.nightjet.com/",
+        "stationen": [
+          "Wien",
+          "Triest",
+          "Venedig",
+          "Bologna",
+          "Rom"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            16.3738,
+            48.2082
+          ],
+          [
+            13.7681,
+            45.6495
+          ],
+          [
+            12.3155,
+            45.4408
+          ],
+          [
+            11.3426,
+            44.4949
+          ],
+          [
+            12.4964,
+            41.9028
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Wien – Mailand (Nightjet)",
+        "typ": "Nachtzug",
+        "zuggattung": "Nightjet",
+        "betreiber": "ÖBB",
+        "tageszeit": "Nacht",
+        "dauer": "ca. 9h",
+        "interrail": "aufpreis",
+        "buchung_url": "https://www.nightjet.com/",
+        "stationen": [
+          "Wien",
+          "Steyr",
+          "Innsbruck",
+          "Mailand"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            16.3738,
+            48.2082
+          ],
+          [
+            14.2858,
+            47.8095
+          ],
+          [
+            11.3951,
+            47.2682
+          ],
+          [
+            11.3868,
+            47.2692
+          ],
+          [
+            9.1895,
+            45.4654
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Brüssel – Wien (Nightjet)",
+        "typ": "Nachtzug",
+        "zuggattung": "Nightjet",
+        "betreiber": "ÖBB",
+        "tageszeit": "Nacht",
+        "dauer": "ca. 14h",
+        "interrail": "aufpreis",
+        "buchung_url": "https://www.nightjet.com/",
+        "stationen": [
+          "Brüssel",
+          "Frankfurt am Main",
+          "Salzburg",
+          "Wien"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4.3517,
+            50.8503
+          ],
+          [
+            8.6821,
+            50.1109
+          ],
+          [
+            13.08,
+            47.8095
+          ],
+          [
+            16.3738,
+            48.2082
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Wien – Bukarest (Nightjet)",
+        "typ": "Nachtzug",
+        "zuggattung": "Nightjet",
+        "betreiber": "ÖBB",
+        "tageszeit": "Nacht",
+        "bemerkung": "Eigener Zug ab Dez 2025",
+        "dauer": "ca. 19h",
+        "interrail": "aufpreis",
+        "buchung_url": "https://www.nightjet.com/",
+        "stationen": [
+          "Wien",
+          "Bratislava",
+          "Budapest",
+          "Szolnok",
+          "Bukarest"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            16.3738,
+            48.2082
+          ],
+          [
+            17.1077,
+            48.1443
+          ],
+          [
+            18.9232,
+            47.4979
+          ],
+          [
+            20.15,
+            47.4979
+          ],
+          [
+            26.1025,
+            44.4268
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Wien – Kyiv (Nightjet)",
+        "typ": "Nachtzug",
+        "zuggattung": "Nightjet",
+        "betreiber": "ÖBB",
+        "tageszeit": "Nacht",
+        "dauer": "ca. 22h",
+        "interrail": "aufpreis",
+        "buchung_url": "https://www.nightjet.com/",
+        "stationen": [
+          "Wien",
+          "Bratislava",
+          "Budapest",
+          "Uschhorod",
+          "Lemberg",
+          "Kiew"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            16.3738,
+            48.2082
+          ],
+          [
+            17.1077,
+            48.1443
+          ],
+          [
+            18.9232,
+            47.4979
+          ],
+          [
+            22.2984,
+            48.6208
+          ],
+          [
+            24.0297,
+            49.8397
+          ],
+          [
+            30.5238,
+            50.4547
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Brüssel – Berlin (European Sleeper)",
+        "typ": "Nachtzug",
+        "zuggattung": "European Sleeper",
+        "betreiber": "European Sleeper",
+        "tageszeit": "Nacht",
+        "bemerkung": "Neustart März 2026; 6× wöchentlich",
+        "dauer": "ca. 12h",
+        "interrail": "aufpreis",
+        "buchung_url": "https://www.europeansleeper.eu/en",
+        "stationen": [
+          "Brüssel",
+          "Aachen",
+          "Leinefelde",
+          "Berlin"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4.3517,
+            50.8503
+          ],
+          [
+            6.0839,
+            50.7753
+          ],
+          [
+            10.4515,
+            51.3127
+          ],
+          [
+            13.3888,
+            52.517
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Paris – Berlin (European Sleeper)",
+        "typ": "Nachtzug",
+        "zuggattung": "European Sleeper",
+        "betreiber": "European Sleeper",
+        "tageszeit": "Nacht",
+        "bemerkung": "3× wöchentlich seit März 2026",
+        "dauer": "ca. 14h",
+        "interrail": "aufpreis",
+        "buchung_url": "https://www.europeansleeper.eu/en",
+        "stationen": [
+          "Paris",
+          "Brüssel",
+          "Aachen",
+          "Leinefelde",
+          "Berlin"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            2.3522,
+            48.8566
+          ],
+          [
+            4.3517,
+            50.8503
+          ],
+          [
+            6.0839,
+            50.7753
+          ],
+          [
+            10.4515,
+            51.3127
+          ],
+          [
+            13.3888,
+            52.517
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Rostock – Wien (IC Nacht)",
+        "typ": "Nachtzug",
+        "zuggattung": "IC Nacht",
+        "betreiber": "DB / ÖBB",
+        "tageszeit": "Nacht",
+        "dauer": "ca. 12h",
+        "interrail": "aufpreis",
+        "buchung_url": "https://www.bahn.de/",
+        "stationen": [
+          "Rostock",
+          "Berlin",
+          "Leipzig",
+          "Nürnberg",
+          "Simbach am Inn",
+          "Salzburg",
+          "Wien"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.14,
+            54.0887
+          ],
+          [
+            13.3888,
+            52.517
+          ],
+          [
+            12.3731,
+            51.3397
+          ],
+          [
+            11.0243,
+            49.4521
+          ],
+          [
+            12.5547,
+            48.5672
+          ],
+          [
+            13.08,
+            47.8095
+          ],
+          [
+            16.3738,
+            48.2082
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hamburg – Stockholm (Nachtzug)",
+        "typ": "Nachtzug",
+        "zuggattung": "Nachtzug",
+        "betreiber": "SJ / RDC",
+        "tageszeit": "Nacht",
+        "bemerkung": "SJ bis Aug 2026; dann RDC",
+        "dauer": "ca. 13h",
+        "interrail": "aufpreis",
+        "buchung_url": "https://www.sj.se/en/",
+        "stationen": [
+          "Hamburg",
+          "Kopenhagen",
+          "Malmö",
+          "Stockholm"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            9.9945,
+            53.5753
+          ],
+          [
+            12.5683,
+            55.6761
+          ],
+          [
+            13.0038,
+            55.605
+          ],
+          [
+            18.0686,
+            59.3293
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hamburg – Villach (UEX)",
+        "typ": "Nachtzug",
+        "zuggattung": "UEX UrlaubsExpress",
+        "betreiber": "RDC",
+        "tageszeit": "Nacht",
+        "bemerkung": "Saisonal Mai–Okt 2026",
+        "dauer": "ca. 12h",
+        "interrail": "nein",
+        "buchung_url": "https://www.urlaubs-express.de/en",
+        "stationen": [
+          "Hamburg",
+          "München",
+          "Triest"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            9.9945,
+            53.5753
+          ],
+          [
+            11.582,
+            48.1351
+          ],
+          [
+            13.7681,
+            45.6495
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Düsseldorf – Innsbruck (UEX)",
+        "typ": "Nachtzug",
+        "zuggattung": "UEX UrlaubsExpress",
+        "betreiber": "RDC",
+        "tageszeit": "Nacht",
+        "bemerkung": "Saisonal Mai–Okt 2026",
+        "dauer": "ca. 10h",
+        "interrail": "nein",
+        "buchung_url": "https://www.urlaubs-express.de/en",
+        "stationen": [
+          "Düsseldorf",
+          "Aachen",
+          "München",
+          "Innsbruck"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            6.7735,
+            51.2217
+          ],
+          [
+            6.0839,
+            50.7753
+          ],
+          [
+            11.582,
+            48.1351
+          ],
+          [
+            11.3951,
+            47.2682
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Wien – Krakau (EC)",
+        "typ": "EuroCity",
+        "zuggattung": "EC",
+        "betreiber": "ÖBB / PKP",
+        "tageszeit": "Tag",
+        "bemerkung": "3 EC-Paare täglich; ein Zug bis Przemyśl",
+        "dauer": "ca. 7h",
+        "interrail": "ja",
+        "buchung_url": "https://tickets.oebb.at/",
+        "stationen": [
+          "Wien",
+          "Mistelbach",
+          "Breslau",
+          "Krakau"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            16.3738,
+            48.2082
+          ],
+          [
+            16.6068,
+            48.596
+          ],
+          [
+            17.0385,
+            51.1079
+          ],
+          [
+            19.9449,
+            50.0647
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Budapest – Warschau (EC)",
+        "typ": "EuroCity",
+        "zuggattung": "EC",
+        "betreiber": "MÁV / PKP",
+        "tageszeit": "Tag",
+        "dauer": "ca. 8h",
+        "interrail": "ja",
+        "buchung_url": "https://www.intercity.pl/en/",
+        "stationen": [
+          "Budapest",
+          "Krakau",
+          "Warschau"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            18.9232,
+            47.4979
+          ],
+          [
+            19.9449,
+            50.0647
+          ],
+          [
+            21.0122,
+            52.2297
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Wien – Warschau (Chopin Nachtzug)",
+        "typ": "Nachtzug",
+        "zuggattung": "EuroNight Chopin",
+        "betreiber": "PKP / ÖBB",
+        "tageszeit": "Nacht",
+        "dauer": "ca. 10h",
+        "interrail": "aufpreis",
+        "buchung_url": "https://www.nightjet.com/",
+        "stationen": [
+          "Wien",
+          "Budapest",
+          "Krakau",
+          "Warschau"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            16.3738,
+            48.2082
+          ],
+          [
+            18.9232,
+            47.4979
+          ],
+          [
+            19.9449,
+            50.0647
+          ],
+          [
+            21.0122,
+            52.2297
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Wien – Bukarest (Dacia)",
+        "typ": "Nachtzug",
+        "zuggattung": "EuroNight Dacia",
+        "betreiber": "CFR / MÁV / ÖBB",
+        "tageszeit": "Nacht",
+        "bemerkung": "Via Transsylvanien; Abfahrt Wien 19:08",
+        "dauer": "ca. 13h",
+        "interrail": "aufpreis",
+        "buchung_url": "https://tickets.oebb.at/",
+        "stationen": [
+          "Wien",
+          "Bratislava",
+          "Budapest",
+          "Klausenburg",
+          "Kronstadt",
+          "Bukarest"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            16.3738,
+            48.2082
+          ],
+          [
+            17.1077,
+            48.1443
+          ],
+          [
+            18.9232,
+            47.4979
+          ],
+          [
+            23.6236,
+            46.7712
+          ],
+          [
+            25.6012,
+            45.6579
+          ],
+          [
+            26.1025,
+            44.4268
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Istanbul – Sofia Express",
+        "typ": "Nachtzug",
+        "zuggattung": "Istanbul-Sofia Express",
+        "betreiber": "TCDD / BDŽ",
+        "tageszeit": "Nacht",
+        "bemerkung": "Täglich; ca. 9 Stunden",
+        "dauer": "ca. 9h",
+        "interrail": "nein",
+        "buchung_url": "https://www.thetrainline.com/",
+        "stationen": [
+          "Istanbul",
+          "Edirne",
+          "Stara Zagora",
+          "Sofia"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            28.75,
+            41.0082
+          ],
+          [
+            26.5601,
+            41.6771
+          ],
+          [
+            26.034,
+            42.1394
+          ],
+          [
+            23.3219,
+            42.6977
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bukarest – Istanbul (saisonal)",
+        "typ": "Nachtzug",
+        "zuggattung": "Kurswagen",
+        "betreiber": "CFR / BDŽ / TCDD",
+        "tageszeit": "Nacht",
+        "bemerkung": "Saisonal Juni–Oktober; direkter Kurswagen",
+        "dauer": "ca. 16h",
+        "interrail": "nein",
+        "buchung_url": "https://www.cfrcalatori.ro/en/",
+        "stationen": [
+          "Bukarest",
+          "Russe",
+          "Dimitrowgrad",
+          "Sofia",
+          "Edirne",
+          "Istanbul"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            26.1025,
+            44.4268
+          ],
+          [
+            25.9736,
+            43.8496
+          ],
+          [
+            25.392,
+            43.207
+          ],
+          [
+            23.3219,
+            42.6977
+          ],
+          [
+            26.5601,
+            41.6771
+          ],
+          [
+            28.75,
+            41.0082
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Sofia – Bukarest (EC)",
+        "typ": "EuroCity",
+        "zuggattung": "EC",
+        "betreiber": "BDŽ / CFR",
+        "tageszeit": "Tag",
+        "bemerkung": "Via Ruse; täglich",
+        "dauer": "ca. 8h",
+        "interrail": "ja",
+        "buchung_url": "https://www.thetrainline.com/",
+        "stationen": [
+          "Sofia",
+          "Russe",
+          "Bukarest"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            23.3219,
+            42.6977
+          ],
+          [
+            25.9736,
+            43.8496
+          ],
+          [
+            26.1025,
+            44.4268
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Vilnius – Riga – Tallinn",
+        "typ": "Fernzug",
+        "zuggattung": "IC Baltikum",
+        "betreiber": "LTG / LDZDZ / Elron",
+        "tageszeit": "Tag",
+        "bemerkung": "Seit Jan 2025; ab Jan 2026 2× täglich; Umstieg in Valga",
+        "dauer": "ca. 7h",
+        "interrail": "ja",
+        "buchung_url": "https://www.ltrains.lt/en",
+        "stationen": [
+          "Vilnius",
+          "Riga",
+          "Sigulda",
+          "Valmiera",
+          "Tallinn"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            25.2798,
+            54.6872
+          ],
+          [
+            24.1052,
+            56.946
+          ],
+          [
+            24.7536,
+            57.1582
+          ],
+          [
+            25.9676,
+            57.811
+          ],
+          [
+            24.7536,
+            59.437
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Warschau – Vilnius",
+        "typ": "Fernzug",
+        "zuggattung": "IC",
+        "betreiber": "PKP / LTG",
+        "tageszeit": "Tag",
+        "dauer": "ca. 3h 30min",
+        "interrail": "ja",
+        "buchung_url": "https://www.intercity.pl/en/",
+        "stationen": [
+          "Warschau",
+          "Vilnius"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            21.0122,
+            52.2297
+          ],
+          [
+            25.2798,
+            54.6872
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Warschau – Prag (Regiojet)",
+        "typ": "Fernzug",
+        "zuggattung": "IC Regiojet",
+        "betreiber": "Regiojet",
+        "tageszeit": "Tag",
+        "bemerkung": "Seit 2026; via Katowice/Ostrava",
+        "dauer": "ca. 8h",
+        "interrail": "ja",
+        "buchung_url": "https://www.regiojet.com/",
+        "stationen": [
+          "Warschau",
+          "Kattowitz",
+          "Ostrau",
+          "Prag"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            21.0122,
+            52.2297
+          ],
+          [
+            19.0238,
+            50.2649
+          ],
+          [
+            18.2921,
+            49.8344
+          ],
+          [
+            14.4208,
+            50.088
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Budapest – Belgrad (EC, verschoben)",
+        "typ": "EuroCity",
+        "zuggattung": "EC (geplant)",
+        "betreiber": "MÁV / SOKO",
+        "tageszeit": "Tag",
+        "bemerkung": "Start auf mind. Juni 2026 verschoben (ETCS-Probleme); 6 Zugpaare tägl. geplant",
+        "dauer": "ca. 3h 30min",
+        "interrail": "ja",
+        "buchung_url": "https://www.thetrainline.com/",
+        "stationen": [
+          "Budapest",
+          "Baja",
+          "Belgrad"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            18.9232,
+            47.4979
+          ],
+          [
+            19.104,
+            46.0832
+          ],
+          [
+            20.4531,
+            44.804
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Wien – Belgrad (EC, verschoben)",
+        "typ": "EuroCity",
+        "zuggattung": "EC (geplant)",
+        "betreiber": "ÖBB / MÁV / SOKO",
+        "tageszeit": "Tag",
+        "bemerkung": "2 Zugpaare als Verlängerung Wien–Budapest–Belgrad; abhängig von ETCS-Freigabe",
+        "dauer": "ca. 5h 30min",
+        "interrail": "ja",
+        "buchung_url": "https://tickets.oebb.at/",
+        "stationen": [
+          "Wien",
+          "Budapest",
+          "Belgrad"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            16.3738,
+            48.2082
+          ],
+          [
+            18.9232,
+            47.4979
+          ],
+          [
+            20.4531,
+            44.804
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Ljubljana – Rijeka",
+        "typ": "EuroCity",
+        "zuggattung": "EC / IC",
+        "betreiber": "HŽ / SŽ",
+        "tageszeit": "Tag",
+        "bemerkung": "Täglich; wichtigste int. Verbindung Slowenien–Kroatien Adriaküste",
+        "dauer": "ca. 2h 30min",
+        "interrail": "ja",
+        "buchung_url": "https://www.thetrainline.com/",
+        "stationen": [
+          "Laibach",
+          "Sežana",
+          "Rijeka"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            14.5058,
+            46.0569
+          ],
+          [
+            13.8503,
+            45.8481
+          ],
+          [
+            14.4422,
+            45.3271
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Ljubljana – Pula",
+        "typ": "EuroCity",
+        "zuggattung": "EC / IC",
+        "betreiber": "HŽ / SŽ",
+        "tageszeit": "Tag",
+        "bemerkung": "International via Rijeka nach Pula (Istrien)",
+        "dauer": "ca. 3h 30min",
+        "interrail": "ja",
+        "buchung_url": "https://www.thetrainline.com/",
+        "stationen": [
+          "Laibach",
+          "Sežana",
+          "Rijeka",
+          "Pula"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            14.5058,
+            46.0569
+          ],
+          [
+            13.8503,
+            45.8481
+          ],
+          [
+            14.4422,
+            45.3271
+          ],
+          [
+            13.8494,
+            44.8686
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Zagreb – Ljubljana",
+        "typ": "EuroCity",
+        "zuggattung": "EC",
+        "betreiber": "HŽ / SŽ",
+        "tageszeit": "Tag",
+        "bemerkung": "Min. 2× täglich; 2:30h",
+        "dauer": "ca. 2h 30min",
+        "interrail": "ja",
+        "buchung_url": "https://www.thetrainline.com/",
+        "stationen": [
+          "Zagreb",
+          "Celje",
+          "Laibach"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            15.9819,
+            45.815
+          ],
+          [
+            15.2401,
+            46.1512
+          ],
+          [
+            14.5058,
+            46.0569
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Zagreb – Budapest",
+        "typ": "EuroCity",
+        "zuggattung": "EC",
+        "betreiber": "HŽ / MÁV",
+        "tageszeit": "Tag",
+        "bemerkung": "Täglich; ca. 6h",
+        "dauer": "ca. 6h",
+        "interrail": "ja",
+        "buchung_url": "https://www.thetrainline.com/",
+        "stationen": [
+          "Zagreb",
+          "Barcs",
+          "Budapest"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            15.9819,
+            45.815
+          ],
+          [
+            17.5,
+            46.09
+          ],
+          [
+            18.9232,
+            47.4979
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Warschau – Rijeka (Nachtzug)",
+        "typ": "Nachtzug",
+        "zuggattung": "Nachtzug saisonal",
+        "betreiber": "PKP / ÖBB / HŽ",
+        "tageszeit": "Nacht",
+        "bemerkung": "Saisonal Sommer; seit 2025; via Wien, Ljubljana, Postojna",
+        "dauer": "ca. 18h",
+        "interrail": "aufpreis",
+        "buchung_url": "https://www.intercity.pl/en/",
+        "stationen": [
+          "Warschau",
+          "Wien",
+          "Laibach",
+          "Postojna",
+          "Rijeka"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            21.0122,
+            52.2297
+          ],
+          [
+            16.3738,
+            48.2082
+          ],
+          [
+            14.5058,
+            46.0569
+          ],
+          [
+            14.2998,
+            45.7734
+          ],
+          [
+            14.4422,
+            45.3271
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Budapest – Split (saisonal)",
+        "typ": "Nachtzug",
+        "zuggattung": "Nachtzug saisonal",
+        "betreiber": "MÁV / HŽ",
+        "tageszeit": "Nacht",
+        "bemerkung": "Saisonal Juni–September",
+        "dauer": "ca. 14h",
+        "interrail": "aufpreis",
+        "buchung_url": "https://www.thetrainline.com/",
+        "stationen": [
+          "Budapest",
+          "Zagreb",
+          "Split"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            18.9232,
+            47.4979
+          ],
+          [
+            15.9819,
+            45.815
+          ],
+          [
+            16.4402,
+            43.5081
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Budapest – Rijeka (saisonal)",
+        "typ": "Nachtzug",
+        "zuggattung": "Nachtzug saisonal",
+        "betreiber": "MÁV / HŽ",
+        "tageszeit": "Nacht",
+        "bemerkung": "Saisonal Sommer",
+        "dauer": "ca. 10h",
+        "interrail": "aufpreis",
+        "buchung_url": "https://www.thetrainline.com/",
+        "stationen": [
+          "Budapest",
+          "Zagreb",
+          "Rijeka"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            18.9232,
+            47.4979
+          ],
+          [
+            15.9819,
+            45.815
+          ],
+          [
+            14.4422,
+            45.3271
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Zagreb – Zürich",
+        "typ": "EuroCity",
+        "zuggattung": "EC",
+        "betreiber": "HŽ / SŽ / SBB",
+        "tageszeit": "Tag",
+        "bemerkung": "Via Ljubljana und Villach",
+        "dauer": "ca. 9h",
+        "interrail": "ja",
+        "buchung_url": "https://tickets.oebb.at/",
+        "stationen": [
+          "Zagreb",
+          "Laibach",
+          "Triest",
+          "Zürich"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            15.9819,
+            45.815
+          ],
+          [
+            14.5058,
+            46.0569
+          ],
+          [
+            13.7681,
+            45.6495
+          ],
+          [
+            8.5401,
+            47.3769
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bukarest – Chisinau (Prietenia)",
+        "typ": "Nachtzug",
+        "zuggattung": "Nachtzug",
+        "betreiber": "CFR / CFM",
+        "tageszeit": "Nacht",
+        "dauer": "ca. 14h",
+        "bemerkung": "Täglicher Nachtzug; Spurwechsel in Ungheni (Breitspur Moldau → Normalspur RO)",
+        "interrail": "nein",
+        "buchung_url": "https://www.cfrcalatori.ro/en/",
+        "stationen": [
+          "Bukarest",
+          "Ungheni",
+          "Kischinau"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            26.1025,
+            44.4268
+          ],
+          [
+            28.0119,
+            47.2044
+          ],
+          [
+            28.8257,
+            47.0105
+          ]
+        ]
+      }
+    }
+  ]
+}
