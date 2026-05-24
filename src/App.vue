@@ -88,20 +88,11 @@ function fitToFeature(feature) {
 
 function initLayer(data) {
   trainFeatures.value = data.features
+
   L.geoJSON(data, {
     style: getStyle,
     onEachFeature(feature, layer) {
       layerMap.set(feature.properties.name, layer)
-      layer.on('click', e => {
-        L.DomEvent.stopPropagation(e)
-        if (!visibleSet.value.has(feature)) return
-        if (selected.value?.name === feature.properties.name) {
-          selected.value = null
-        } else {
-          selected.value = feature.properties
-          showList.value = false
-        }
-      })
       layer.on('mouseover', e => {
         if (visibleSet.value.has(feature) && selected.value?.name !== feature.properties.name) {
           e.target.setStyle({ weight: 5, opacity: 1 })
@@ -111,6 +102,23 @@ function initLayer(data) {
       layer.on('mouseout', () => {
         layer.setStyle(getStyle(feature))
         if (selected.value) layerMap.get(selected.value.name)?.bringToFront()
+      })
+    },
+  }).addTo(map)
+
+  // Wide invisible hit area so trains are easy to tap on touch screens
+  L.geoJSON(data, {
+    style: () => ({ weight: 20, opacity: 0.01, color: '#000' }),
+    onEachFeature(feature, layer) {
+      layer.on('click', e => {
+        L.DomEvent.stopPropagation(e)
+        if (!visibleSet.value.has(feature)) return
+        if (selected.value?.name === feature.properties.name) {
+          selected.value = null
+        } else {
+          selected.value = feature.properties
+          showList.value = false
+        }
       })
     },
   }).addTo(map)
