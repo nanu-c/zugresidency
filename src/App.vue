@@ -516,7 +516,59 @@ watch([searchQuery, activeTypes, onlyInterrail, selected, plannerLegs], refreshS
           <dd>{{ selected.betreiber }}</dd>
         </dl>
 
-        <div v-if="selected.stationen && selected.stationen.length > 1" class="route-stations">
+        <!-- Timetable with times (if available) -->
+        <template v-if="timetables[selected.name]">
+          <div
+            v-for="dir in ['hin', 'zurück']"
+            :key="dir"
+            class="tt-block"
+          >
+            <template v-if="timetables[selected.name][dir]">
+              <div class="tt-dir-header">
+                <span class="tt-dir-label">{{ dir === 'hin' ? 'Hinfahrt' : 'Rückfahrt' }}</span>
+                <span class="tt-days">{{ timetables[selected.name][dir].tage.join(' · ') }}</span>
+              </div>
+
+              <!-- Single departure: stop-by-stop with times -->
+              <div v-if="timetables[selected.name][dir].stops" class="tt-stops">
+                <div
+                  v-for="(stop, i) in timetables[selected.name][dir].stops"
+                  :key="i"
+                  class="tt-stop"
+                >
+                  <div class="tt-time">{{ stop.dep ?? stop.arr }}</div>
+                  <div class="tt-track">
+                    <div v-if="i > 0" class="tt-line" />
+                    <div class="tt-dot" :class="{ 'tt-dot--terminal': i === 0 || i === timetables[selected.name][dir].stops.length - 1 }" />
+                    <div v-if="i < timetables[selected.name][dir].stops.length - 1" class="tt-line" />
+                  </div>
+                  <div class="tt-stop-name" :class="{ 'tt-stop-name--terminal': i === 0 || i === timetables[selected.name][dir].stops.length - 1 }">
+                    {{ stop.name }}
+                    <span v-if="stop.arr && !stop.dep" class="tt-arr-label">Ankunft</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Multiple departures: compact departure grid -->
+              <div v-else-if="timetables[selected.name][dir].abfahrten" class="tt-abfahrten">
+                <div
+                  v-for="(fahrt, i) in timetables[selected.name][dir].abfahrten"
+                  :key="i"
+                  class="tt-fahrt"
+                >
+                  <span class="tt-fahrt-dep">{{ fahrt.stops[0].dep }}</span>
+                  <span class="tt-fahrt-via" v-if="fahrt.stops.length > 2">
+                    via {{ fahrt.stops.slice(1, -1).map(s => s.name).join(', ') }}
+                  </span>
+                  <span class="tt-fahrt-arr">{{ fahrt.stops[fahrt.stops.length - 1].arr ?? fahrt.stops[fahrt.stops.length - 1].dep }}</span>
+                </div>
+              </div>
+            </template>
+          </div>
+        </template>
+
+        <!-- Fallback: plain station list without times -->
+        <div v-else-if="selected.stationen && selected.stationen.length > 1" class="route-stations">
           <div
             v-for="(station, i) in selected.stationen"
             :key="i"
@@ -1306,6 +1358,128 @@ html, body {
 .station-name--terminal {
   color: #1e293b;
   font-weight: 600;
+}
+
+/* ── Timetable in detail panel ── */
+.tt-block {
+  margin-bottom: 14px;
+}
+.tt-dir-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.tt-dir-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #64748b;
+}
+.tt-days {
+  font-size: 10px;
+  color: #94a3b8;
+  background: #f1f5f9;
+  border-radius: 100px;
+  padding: 2px 7px;
+}
+
+/* Stop-by-stop (night trains) */
+.tt-stops { display: flex; flex-direction: column; }
+.tt-stop {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  min-height: 26px;
+}
+.tt-time {
+  width: 42px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+  text-align: right;
+  align-self: center;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+.tt-track {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 14px;
+  flex-shrink: 0;
+}
+.tt-line {
+  flex: 1;
+  width: 2px;
+  background: #e2e8f0;
+  min-height: 6px;
+}
+.tt-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  box-shadow: 0 0 0 1.5px #94a3b8;
+  flex-shrink: 0;
+}
+.tt-dot--terminal {
+  width: 9px;
+  height: 9px;
+  background: #1e293b;
+  box-shadow: 0 0 0 1.5px #1e293b;
+}
+.tt-stop-name {
+  font-size: 13px;
+  color: #64748b;
+  align-self: center;
+  padding: 3px 0;
+  line-height: 1.3;
+}
+.tt-stop-name--terminal { color: #1e293b; font-weight: 600; }
+.tt-arr-label {
+  font-size: 10px;
+  color: #94a3b8;
+  margin-left: 4px;
+  font-weight: 400;
+}
+
+/* Multiple departures (day trains) */
+.tt-abfahrten {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.tt-fahrt {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  padding: 3px 0;
+  border-bottom: 1px solid #f8fafc;
+}
+.tt-fahrt:last-child { border-bottom: none; }
+.tt-fahrt-dep {
+  font-weight: 700;
+  color: #1e293b;
+  width: 36px;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+.tt-fahrt-via {
+  flex: 1;
+  color: #94a3b8;
+  font-size: 11px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tt-fahrt-arr {
+  color: #475569;
+  font-weight: 500;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
 }
 
 .detail-actions {
