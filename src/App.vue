@@ -245,26 +245,41 @@ function addSelectedToPlan() {
   if (!selected.value) return
   const name = selected.value.name
   const tt = timetables.value[name]
-  if (tt && plannerCity.value) {
-    const city = plannerCity.value.toLowerCase()
+  if (tt) {
     for (const dir of ['hin', 'zurück']) {
       if (plannedKeys.value.has(`${name}#${dir}`)) continue
       const sched = tt[dir]
       if (!sched) continue
       const abfahrten = sched.abfahrten ?? (sched.stops ? [{ stops: sched.stops }] : [])
-      for (const fahrt of abfahrten) {
-        const idx = fahrt.stops.findIndex(s => s.name.toLowerCase() === city || s.name.toLowerCase().includes(city))
-        if (idx >= 0 && idx < fahrt.stops.length - 1) {
-          const stop = fahrt.stops[idx]
-          const last = fahrt.stops[fahrt.stops.length - 1]
-          addLeg({ trainName: name, direction: dir, fromStation: stop.name, depTime: stop.dep ?? null, toStation: last.name, arrTime: last.arr ?? last.dep ?? null })
+      if (!plannerCity.value) {
+        // No city set — board at the first stop of this direction
+        const fahrt = abfahrten[0]
+        if (fahrt?.stops.length >= 2) {
+          const first = fahrt.stops[0]
+          const last  = fahrt.stops[fahrt.stops.length - 1]
+          addLeg({ trainName: name, direction: dir, fromStation: first.name, depTime: first.dep ?? null, toStation: last.name, arrTime: last.arr ?? last.dep ?? null })
           return
+        }
+      } else {
+        const city = plannerCity.value.toLowerCase()
+        for (const fahrt of abfahrten) {
+          const idx = fahrt.stops.findIndex(s => s.name.toLowerCase() === city || s.name.toLowerCase().includes(city))
+          if (idx >= 0 && idx < fahrt.stops.length - 1) {
+            const stop = fahrt.stops[idx]
+            const last = fahrt.stops[fahrt.stops.length - 1]
+            addLeg({ trainName: name, direction: dir, fromStation: stop.name, depTime: stop.dep ?? null, toStation: last.name, arrTime: last.arr ?? last.dep ?? null })
+            return
+          }
         }
       }
     }
   }
-  // No timetable match — add without times
-  plannerLegs.value = [...plannerLegs.value, { trainName: name, direction: null, fromStation: null, depTime: null, toStation: null, arrTime: null, depDate: plannerDate.value, arrDate: plannerDate.value }]
+  // No timetable — fall back to stationen from GeoJSON
+  const stationen = selected.value.stationen ?? []
+  const fromStation = plannerCity.value ?? stationen[0] ?? null
+  const toStation   = stationen[stationen.length - 1] ?? null
+  plannerLegs.value = [...plannerLegs.value, { trainName: name, direction: 'hin', fromStation, depTime: null, toStation, arrTime: null, depDate: plannerDate.value, arrDate: plannerDate.value }]
+  if (toStation) plannerCity.value = toStation
   selected.value = null
   refreshStyles()
   savePlan()
