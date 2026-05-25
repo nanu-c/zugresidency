@@ -64,7 +64,10 @@ const groupedVisible = computed(() => {
   return result
 })
 
-const plannedNames = computed(() => new Set(plannerLegs.value.map(l => l.trainName)))
+// Direction-aware key so the same train can be added in both directions (e.g. hin + zurück)
+const plannedKeys  = computed(() => new Set(plannerLegs.value.map(l => `${l.trainName}#${l.direction}`)))
+// Plain name set used only for map highlighting
+const plannedTrainNames = computed(() => new Set(plannerLegs.value.map(l => l.trainName)))
 
 const plannerTrains = computed(() => {
   if (!plannerCity.value) return []
@@ -97,7 +100,7 @@ function getStyle(feature) {
   const p = feature.properties
   const visible = visibleSet.value.has(feature)
   const isSel = selected.value?.name === p.name
-  const isPlanned = plannedNames.value.has(p.name)
+  const isPlanned = plannedTrainNames.value.has(p.name)
   if (isSel) return { color: '#f59e0b', weight: 6, opacity: 1, dashArray: null }
   if (isPlanned) return { color: '#f97316', weight: 5, opacity: 1, dashArray: null }
   return {
@@ -214,21 +217,38 @@ async function detectCity() {
   )
 }
 
+const PLAN_KEY = 'zugresidency_plan'
+
+function addDays(isoDate, n) {
+  const d = new Date(isoDate + 'T12:00:00')
+  d.setDate(d.getDate() + n)
+  return d.toISOString().split('T')[0]
+}
+
+function nightsBetween(fromISO, toISO) {
+  return Math.round((new Date(toISO + 'T12:00:00') - new Date(fromISO + 'T12:00:00')) / 86400000)
+}
+
 function addLeg(train) {
-  plannerLegs.value = [...plannerLegs.value, train]
+  const depDate = plannerDate.value
+  const crossesMidnight = !!(train.depTime && train.arrTime && train.arrTime < train.depTime)
+  const arrDate = crossesMidnight ? addDays(depDate, 1) : depDate
+  plannerLegs.value = [...plannerLegs.value, { ...train, depDate, arrDate }]
   plannerCity.value = train.toStation
+  plannerDate.value = arrDate
   selected.value = null
   refreshStyles()
+  savePlan()
 }
 
 function addSelectedToPlan() {
   if (!selected.value) return
   const name = selected.value.name
-  if (plannedNames.value.has(name)) return
   const tt = timetables.value[name]
   if (tt && plannerCity.value) {
     const city = plannerCity.value.toLowerCase()
     for (const dir of ['hin', 'zurück']) {
+      if (plannedKeys.value.has(`${name}#${dir}`)) continue
       const sched = tt[dir]
       if (!sched) continue
       const abfahrten = sched.abfahrten ?? (sched.stops ? [{ stops: sched.stops }] : [])
@@ -243,26 +263,62 @@ function addSelectedToPlan() {
       }
     }
   }
-  plannerLegs.value = [...plannerLegs.value, { trainName: name, direction: null, fromStation: null, depTime: null, toStation: null, arrTime: null }]
+  // No timetable match — add without times
+  plannerLegs.value = [...plannerLegs.value, { trainName: name, direction: null, fromStation: null, depTime: null, toStation: null, arrTime: null, depDate: plannerDate.value, arrDate: plannerDate.value }]
   selected.value = null
   refreshStyles()
+  savePlan()
 }
 
 function removeLeg(idx) {
-  plannerLegs.value = plannerLegs.value.filter((_, i) => i !== idx)
-  if (plannerLegs.value.length) plannerCity.value = plannerLegs.value[plannerLegs.value.length - 1].toStation
+  const legs = plannerLegs.value.filter((_, i) => i !== idx)
+  plannerLegs.value = legs
+  if (legs.length) {
+    plannerCity.value = legs[legs.length - 1].toStation
+    plannerDate.value = legs[legs.length - 1].arrDate
+  } else {
+    plannerCity.value = null
+    plannerDate.value = '2026-08-24'
+  }
   refreshStyles()
+  savePlan()
 }
 
 function clearPlan() {
   plannerLegs.value = []
   plannerCity.value = null
+  plannerDate.value = '2026-08-24'
+  try { localStorage.removeItem(PLAN_KEY) } catch(e) {}
   refreshStyles()
+}
+
+function savePlan() {
+  try {
+    localStorage.setItem(PLAN_KEY, JSON.stringify({ legs: plannerLegs.value, date: plannerDate.value, city: plannerCity.value }))
+  } catch(e) {}
+}
+
+function loadPlan() {
+  try {
+    const raw = localStorage.getItem(PLAN_KEY)
+    if (!raw) return
+    const saved = JSON.parse(raw)
+    if (Array.isArray(saved.legs) && saved.legs.length) {
+      plannerLegs.value = saved.legs
+      if (saved.date) plannerDate.value = saved.date
+      if (saved.city) plannerCity.value = saved.city
+    }
+  } catch(e) {}
 }
 
 function formatDate(iso) {
   const d = new Date(iso + 'T12:00:00')
   return d.toLocaleDateString('de-DE', { weekday: 'short', day: 'numeric', month: 'short' })
+}
+
+function formatDateShort(iso) {
+  const d = new Date(iso + 'T12:00:00')
+  return d.toLocaleDateString('de-DE', { day: 'numeric', month: 'short' })
 }
 
 onMounted(async () => {
@@ -281,6 +337,7 @@ onMounted(async () => {
   const [res, ttRes] = await Promise.all([fetch('./trains.geojson'), fetch('./timetables.json')])
   const [data, tt] = await Promise.all([res.json(), ttRes.json()])
   timetables.value = tt
+  loadPlan()
   isLoading.value = false
   initLayer(data)
 })
@@ -591,7 +648,7 @@ watch([searchQuery, activeTypes, onlyInterrail, selected, plannerLegs], refreshS
 
         <div class="detail-actions">
           <button
-            v-if="plannerMode && !plannedNames.has(selected.name)"
+            v-if="plannerMode"
             class="btn-action btn-add-plan"
             @click="addSelectedToPlan"
           >
@@ -600,9 +657,6 @@ watch([searchQuery, activeTypes, onlyInterrail, selected, plannerLegs], refreshS
             </svg>
             Zum Plan
           </button>
-          <span v-if="plannerMode && plannedNames.has(selected.name)" class="badge-in-plan">
-            ✓ Im Plan
-          </span>
           <a
             v-if="selected.buchung_url"
             :href="selected.buchung_url"
@@ -684,8 +738,8 @@ watch([searchQuery, activeTypes, onlyInterrail, selected, plannerLegs], refreshS
               v-for="t in plannerTrains"
               :key="t.trainName + t.direction + t.depTime"
               class="planner-train-item"
-              :class="{ 'planner-train-item--planned': plannedNames.has(t.trainName) }"
-              @click="!plannedNames.has(t.trainName) && addLeg(t)"
+              :class="{ 'planner-train-item--planned': plannedKeys.has(t.trainName + '#' + t.direction) }"
+              @click="!plannedKeys.has(t.trainName + '#' + t.direction) && addLeg(t)"
             >
               <div class="planner-train-times">
                 <span class="pt-dep">{{ t.depTime }}</span>
@@ -696,7 +750,7 @@ watch([searchQuery, activeTypes, onlyInterrail, selected, plannerLegs], refreshS
                 <div class="pt-name">{{ t.trainName }}</div>
                 <div class="pt-route">{{ t.fromStation }} → {{ t.toStation }}</div>
               </div>
-              <span v-if="plannedNames.has(t.trainName)" class="pt-check">✓</span>
+              <span v-if="plannedKeys.has(t.trainName + '#' + t.direction)" class="pt-check">✓</span>
             </button>
           </div>
 
@@ -712,27 +766,46 @@ watch([searchQuery, activeTypes, onlyInterrail, selected, plannerLegs], refreshS
           <!-- Planned legs -->
           <div v-if="plannerLegs.length" class="planner-legs">
             <div class="planner-section-label">Meine Reise</div>
-            <div
-              v-for="(leg, i) in plannerLegs"
-              :key="i"
-              class="planner-leg"
-              :style="{ '--leg-color': TYPE_COLORS[trainFeatures.find(f => f.properties.name === leg.trainName)?.properties.typ] || '#f97316' }"
-            >
-              <div class="leg-stripe" />
-              <div class="leg-body">
-                <div class="leg-times" v-if="leg.depTime">
-                  <span class="leg-dep">{{ leg.depTime }}</span>
-                  <span class="leg-arr"> → {{ leg.arrTime }}</span>
-                </div>
-                <div class="leg-name">{{ leg.trainName }}</div>
-                <div class="leg-route" v-if="leg.fromStation">{{ leg.fromStation }} → {{ leg.toStation }}</div>
-              </div>
-              <button class="btn-remove-leg" @click="removeLeg(i)" title="Entfernen">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-                  <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+            <template v-for="(leg, i) in plannerLegs" :key="i">
+              <!-- Stay indicator between legs -->
+              <div
+                v-if="i > 0 && nightsBetween(plannerLegs[i-1].arrDate, leg.depDate) > 0"
+                class="leg-stay"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="stay-icon">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
                 </svg>
-              </button>
-            </div>
+                <span class="stay-city">{{ plannerLegs[i-1].toStation }}</span>
+                <span class="stay-nights">{{ nightsBetween(plannerLegs[i-1].arrDate, leg.depDate) }} Nacht/Nächte</span>
+                <span class="stay-dates">{{ formatDateShort(plannerLegs[i-1].arrDate) }} – {{ formatDateShort(leg.depDate) }}</span>
+              </div>
+
+              <div
+                class="planner-leg"
+                :style="{ '--leg-color': TYPE_COLORS[trainFeatures.find(f => f.properties.name === leg.trainName)?.properties.typ] || '#f97316' }"
+              >
+                <div class="leg-stripe" />
+                <div class="leg-body">
+                  <div class="leg-date-row">
+                    <span class="leg-date">{{ leg.depDate ? formatDate(leg.depDate) : '' }}</span>
+                    <span v-if="leg.arrDate && leg.arrDate !== leg.depDate" class="leg-arr-date">
+                      Ankunft {{ formatDateShort(leg.arrDate) }}
+                    </span>
+                  </div>
+                  <div class="leg-times" v-if="leg.depTime">
+                    <span class="leg-dep">{{ leg.depTime }}</span>
+                    <span class="leg-arr"> → {{ leg.arrTime }}</span>
+                  </div>
+                  <div class="leg-name">{{ leg.trainName }}</div>
+                  <div class="leg-route" v-if="leg.fromStation">{{ leg.fromStation }} → {{ leg.toStation }}</div>
+                </div>
+                <button class="btn-remove-leg" @click="removeLeg(i)" title="Entfernen">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                  </svg>
+                </button>
+              </div>
+            </template>
           </div>
         </div>
       </div>
@@ -1728,6 +1801,39 @@ html, body {
   padding: 9px 16px 9px 12px;
   border-bottom: 1px solid #f8fafc;
 }
+.leg-stay {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px 8px 12px;
+  background: #f0fdf4;
+  border-bottom: 1px solid #dcfce7;
+  font-size: 12px;
+  color: #166534;
+}
+.stay-icon { width: 13px; height: 13px; flex-shrink: 0; color: #16a34a; }
+.stay-city { font-weight: 700; }
+.stay-nights { background: #dcfce7; border-radius: 100px; padding: 1px 7px; font-weight: 600; }
+.stay-dates { color: #4ade80; margin-left: auto; font-size: 11px; }
+
+.leg-date-row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+.leg-date {
+  font-size: 11px;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.leg-arr-date {
+  font-size: 10px;
+  color: #94a3b8;
+}
+
 .leg-stripe {
   width: 3px;
   border-radius: 2px;
