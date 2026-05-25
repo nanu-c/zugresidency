@@ -12,12 +12,19 @@ const TYPE_COLORS = {
 const ALL_TYPES = Object.keys(TYPE_COLORS)
 
 const trainFeatures = shallowRef([])
+const timetables = shallowRef({})
 const searchQuery = ref('')
 const activeTypes = ref(new Set(ALL_TYPES))
 const onlyInterrail = ref(false)
 const selected = ref(null)
 const showList = ref(false)
 const isLoading = ref(true)
+
+const plannerMode = ref(false)
+const plannerDate = ref('2026-08-24')
+const plannerLegs = ref([])
+const plannerCity = ref(null)
+const plannerLocating = ref(false)
 
 let map = null
 const layerMap = new Map()
@@ -57,13 +64,42 @@ const groupedVisible = computed(() => {
   return result
 })
 
+const plannedNames = computed(() => new Set(plannerLegs.value.map(l => l.trainName)))
+
+const plannerTrains = computed(() => {
+  if (!plannerCity.value) return []
+  const city = plannerCity.value.toLowerCase().trim()
+  const d = new Date(plannerDate.value + 'T12:00:00')
+  const dayAbbr = ['So','Mo','Di','Mi','Do','Fr','Sa'][d.getDay()]
+  const results = []
+  for (const [trainName, data] of Object.entries(timetables.value)) {
+    for (const dir of ['hin', 'zurück']) {
+      const sched = data[dir]
+      if (!sched || !sched.tage.includes(dayAbbr)) continue
+      const abfahrten = sched.abfahrten ?? (sched.stops ? [{ stops: sched.stops }] : [])
+      for (const fahrt of abfahrten) {
+        const idx = fahrt.stops.findIndex(s => {
+          const sn = s.name.toLowerCase()
+          return sn === city || sn.startsWith(city) || city.startsWith(sn)
+        })
+        if (idx < 0 || idx >= fahrt.stops.length - 1) continue
+        const stop = fahrt.stops[idx]
+        if (!stop.dep) continue
+        const last = fahrt.stops[fahrt.stops.length - 1]
+        results.push({ trainName, direction: dir, fromStation: stop.name, depTime: stop.dep, toStation: last.name, arrTime: last.arr ?? last.dep })
+      }
+    }
+  }
+  return results.sort((a, b) => a.depTime.localeCompare(b.depTime))
+})
+
 function getStyle(feature) {
   const p = feature.properties
   const visible = visibleSet.value.has(feature)
   const isSel = selected.value?.name === p.name
-  if (isSel) {
-    return { color: '#f59e0b', weight: 6, opacity: 1, dashArray: null }
-  }
+  const isPlanned = plannedNames.value.has(p.name)
+  if (isSel) return { color: '#f59e0b', weight: 6, opacity: 1, dashArray: null }
+  if (isPlanned) return { color: '#f97316', weight: 5, opacity: 1, dashArray: null }
   return {
     color: visible ? (TYPE_COLORS[p.typ] || '#888') : '#c8cdd6',
     weight: visible ? 3 : 1.5,
@@ -152,6 +188,83 @@ function resetFilters() {
   selected.value = null
 }
 
+async function detectCity() {
+  if (!navigator.geolocation) return
+  plannerLocating.value = true
+  navigator.geolocation.getCurrentPosition(
+    async pos => {
+      try {
+        const { latitude, longitude } = pos.coords
+        const r = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`, { headers: { 'Accept-Language': 'de' } })
+        const geo = await r.json()
+        const city = geo.address?.city || geo.address?.town || geo.address?.village || ''
+        const allStops = new Set()
+        for (const d of Object.values(timetables.value)) {
+          for (const dir of ['hin', 'zurück']) {
+            const s = d[dir]
+            if (!s) continue
+            ;(s.abfahrten ?? (s.stops ? [{ stops: s.stops }] : [])).forEach(f => f.stops.forEach(st => allStops.add(st.name)))
+          }
+        }
+        const match = [...allStops].find(s => s.toLowerCase() === city.toLowerCase() || city.toLowerCase().includes(s.toLowerCase()) || s.toLowerCase().includes(city.toLowerCase()))
+        plannerCity.value = match ?? city
+      } finally { plannerLocating.value = false }
+    },
+    () => { plannerLocating.value = false }
+  )
+}
+
+function addLeg(train) {
+  plannerLegs.value = [...plannerLegs.value, train]
+  plannerCity.value = train.toStation
+  selected.value = null
+  refreshStyles()
+}
+
+function addSelectedToPlan() {
+  if (!selected.value) return
+  const name = selected.value.name
+  if (plannedNames.value.has(name)) return
+  const tt = timetables.value[name]
+  if (tt && plannerCity.value) {
+    const city = plannerCity.value.toLowerCase()
+    for (const dir of ['hin', 'zurück']) {
+      const sched = tt[dir]
+      if (!sched) continue
+      const abfahrten = sched.abfahrten ?? (sched.stops ? [{ stops: sched.stops }] : [])
+      for (const fahrt of abfahrten) {
+        const idx = fahrt.stops.findIndex(s => s.name.toLowerCase() === city || s.name.toLowerCase().includes(city))
+        if (idx >= 0 && idx < fahrt.stops.length - 1) {
+          const stop = fahrt.stops[idx]
+          const last = fahrt.stops[fahrt.stops.length - 1]
+          addLeg({ trainName: name, direction: dir, fromStation: stop.name, depTime: stop.dep ?? null, toStation: last.name, arrTime: last.arr ?? last.dep ?? null })
+          return
+        }
+      }
+    }
+  }
+  plannerLegs.value = [...plannerLegs.value, { trainName: name, direction: null, fromStation: null, depTime: null, toStation: null, arrTime: null }]
+  selected.value = null
+  refreshStyles()
+}
+
+function removeLeg(idx) {
+  plannerLegs.value = plannerLegs.value.filter((_, i) => i !== idx)
+  if (plannerLegs.value.length) plannerCity.value = plannerLegs.value[plannerLegs.value.length - 1].toStation
+  refreshStyles()
+}
+
+function clearPlan() {
+  plannerLegs.value = []
+  plannerCity.value = null
+  refreshStyles()
+}
+
+function formatDate(iso) {
+  const d = new Date(iso + 'T12:00:00')
+  return d.toLocaleDateString('de-DE', { weekday: 'short', day: 'numeric', month: 'short' })
+}
+
 onMounted(async () => {
   map = L.map('map', { zoomControl: false }).setView([50, 13], 5)
   L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
@@ -165,13 +278,14 @@ onMounted(async () => {
     showList.value = false
   })
 
-  const res = await fetch('./trains.geojson')
-  const data = await res.json()
+  const [res, ttRes] = await Promise.all([fetch('./trains.geojson'), fetch('./timetables.json')])
+  const [data, tt] = await Promise.all([res.json(), ttRes.json()])
+  timetables.value = tt
   isLoading.value = false
   initLayer(data)
 })
 
-watch([searchQuery, activeTypes, onlyInterrail, selected], refreshStyles)
+watch([searchQuery, activeTypes, onlyInterrail, selected, plannerLegs], refreshStyles)
 </script>
 
 <template>
@@ -189,8 +303,20 @@ watch([searchQuery, activeTypes, onlyInterrail, selected], refreshStyles)
         </div>
         <button
           class="btn-list-toggle"
+          :class="{ 'btn-list-toggle--active': plannerMode }"
+          @click="plannerMode = !plannerMode; if (plannerMode) { showList = false; selected = null }"
+          aria-label="Reise planen"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 12h18M3 6h18M3 18h12"/><circle cx="19" cy="18" r="3" fill="currentColor" stroke="none" opacity="0.8"/>
+          </svg>
+          Planen
+          <span v-if="plannerLegs.length" class="list-toggle-count">{{ plannerLegs.length }}</span>
+        </button>
+        <button
+          class="btn-list-toggle"
           :class="{ 'btn-list-toggle--active': showList }"
-          @click="showList = !showList; if (showList) selected = null"
+          @click="showList = !showList; if (showList) { selected = null; plannerMode = false }"
           aria-label="Zugliste anzeigen"
         >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -368,7 +494,7 @@ watch([searchQuery, activeTypes, onlyInterrail, selected], refreshStyles)
             </svg>
             {{
               selected.interrail === 'ja'       ? 'Interrail' :
-              selected.interrail === 'aufpreis' ? 'Interrail + Aufpreis' :
+              selected.interrail === 'aufpreis' ? (selected.aufpreis_eur ? `Interrail + ${selected.aufpreis_eur} €` : 'Interrail + Aufpreis') :
                                                   'Kein Interrail'
             }}
           </span>
@@ -412,6 +538,19 @@ watch([searchQuery, activeTypes, onlyInterrail, selected], refreshStyles)
         </div>
 
         <div class="detail-actions">
+          <button
+            v-if="plannerMode && !plannedNames.has(selected.name)"
+            class="btn-action btn-add-plan"
+            @click="addSelectedToPlan"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+            Zum Plan
+          </button>
+          <span v-if="plannerMode && plannedNames.has(selected.name)" class="badge-in-plan">
+            ✓ Im Plan
+          </span>
           <a
             v-if="selected.buchung_url"
             :href="selected.buchung_url"
@@ -438,6 +577,111 @@ watch([searchQuery, activeTypes, onlyInterrail, selected], refreshStyles)
             </svg>
             Zur Liste
           </button>
+        </div>
+      </div>
+    </Transition>
+
+    <!-- Planner panel -->
+    <Transition name="panel">
+      <div v-if="plannerMode && !selected" class="planner-panel">
+        <div class="panel-handle" />
+        <div class="planner-header">
+          <h2 class="planner-title">Reise planen</h2>
+          <div class="planner-header-right">
+            <button v-if="plannerLegs.length" class="btn-clear-plan" @click="clearPlan">Zurücksetzen</button>
+            <button class="btn-close" @click="plannerMode = false" aria-label="Planer schließen">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Controls: date + city -->
+        <div class="planner-controls">
+          <div class="planner-control-row">
+            <label class="planner-label">Datum</label>
+            <input type="date" v-model="plannerDate" class="planner-date-input" min="2026-08-24" max="2026-09-05" />
+          </div>
+          <div class="planner-control-row">
+            <label class="planner-label">Ab Stadt</label>
+            <div class="planner-city-wrap">
+              <input
+                v-model="plannerCity"
+                type="text"
+                placeholder="z.B. Wien, Berlin …"
+                class="planner-city-input"
+                @input="plannerCity = $event.target.value"
+              />
+              <button class="btn-locate" @click="detectCity" :disabled="plannerLocating" :title="plannerLocating ? 'Wird ermittelt…' : 'Standort ermitteln'">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                  <circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="planner-scroll">
+          <!-- Available trains -->
+          <div v-if="plannerCity && plannerTrains.length">
+            <div class="planner-section-label">
+              Züge ab {{ plannerCity }} · {{ formatDate(plannerDate) }}
+            </div>
+            <button
+              v-for="t in plannerTrains"
+              :key="t.trainName + t.direction + t.depTime"
+              class="planner-train-item"
+              :class="{ 'planner-train-item--planned': plannedNames.has(t.trainName) }"
+              @click="!plannedNames.has(t.trainName) && addLeg(t)"
+            >
+              <div class="planner-train-times">
+                <span class="pt-dep">{{ t.depTime }}</span>
+                <span class="pt-arrow">→</span>
+                <span class="pt-arr">{{ t.arrTime }}</span>
+              </div>
+              <div class="planner-train-info">
+                <div class="pt-name">{{ t.trainName }}</div>
+                <div class="pt-route">{{ t.fromStation }} → {{ t.toStation }}</div>
+              </div>
+              <span v-if="plannedNames.has(t.trainName)" class="pt-check">✓</span>
+            </button>
+          </div>
+
+          <div v-else-if="plannerCity && !plannerTrains.length" class="planner-empty">
+            Keine Züge von <strong>{{ plannerCity }}</strong> am {{ formatDate(plannerDate) }} in der Datenbank.<br>
+            <span class="planner-hint">Klicke auf eine Strecke auf der Karte → "Zum Plan".</span>
+          </div>
+
+          <div v-else-if="!plannerCity" class="planner-empty">
+            Gib eine Startstadt ein oder nutze den Standort-Button.
+          </div>
+
+          <!-- Planned legs -->
+          <div v-if="plannerLegs.length" class="planner-legs">
+            <div class="planner-section-label">Meine Reise</div>
+            <div
+              v-for="(leg, i) in plannerLegs"
+              :key="i"
+              class="planner-leg"
+              :style="{ '--leg-color': TYPE_COLORS[trainFeatures.find(f => f.properties.name === leg.trainName)?.properties.typ] || '#f97316' }"
+            >
+              <div class="leg-stripe" />
+              <div class="leg-body">
+                <div class="leg-times" v-if="leg.depTime">
+                  <span class="leg-dep">{{ leg.depTime }}</span>
+                  <span class="leg-arr"> → {{ leg.arrTime }}</span>
+                </div>
+                <div class="leg-name">{{ leg.trainName }}</div>
+                <div class="leg-route" v-if="leg.fromStation">{{ leg.fromStation }} → {{ leg.toStation }}</div>
+              </div>
+              <button class="btn-remove-leg" @click="removeLeg(i)" title="Entfernen">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                  <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </Transition>
@@ -1130,6 +1374,238 @@ html, body {
   background: rgba(255, 255, 255, 0.8) !important;
 }
 
+/* ── Planner panel ── */
+.planner-panel {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  background: #fff;
+  border-radius: 18px 18px 0 0;
+  max-height: 82vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 -4px 32px rgba(0, 0, 0, 0.14);
+  padding: 0 0 24px;
+  overscroll-behavior: contain;
+}
+.planner-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px 10px;
+  flex-shrink: 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+.planner-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1e293b;
+}
+.planner-header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-clear-plan {
+  height: 28px;
+  padding: 0 10px;
+  border: 1.5px solid #fde68a;
+  border-radius: 100px;
+  background: #fffbeb;
+  font-size: 11px;
+  font-weight: 600;
+  color: #92400e;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.btn-clear-plan:hover { background: #fef3c7; }
+
+.planner-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f1f5f9;
+  flex-shrink: 0;
+}
+.planner-control-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.planner-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  width: 56px;
+  flex-shrink: 0;
+}
+.planner-date-input {
+  flex: 1;
+  height: 34px;
+  padding: 0 10px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #1e293b;
+  background: #f8fafc;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.planner-date-input:focus { border-color: #f97316; box-shadow: 0 0 0 3px rgba(249,115,22,0.1); background: #fff; }
+.planner-city-wrap {
+  flex: 1;
+  display: flex;
+  gap: 6px;
+}
+.planner-city-input {
+  flex: 1;
+  height: 34px;
+  padding: 0 10px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #1e293b;
+  background: #f8fafc;
+  outline: none;
+}
+.planner-city-input:focus { border-color: #f97316; box-shadow: 0 0 0 3px rgba(249,115,22,0.1); background: #fff; }
+.btn-locate {
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 8px;
+  background: #fff;
+  color: #64748b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color 0.12s, color 0.12s;
+}
+.btn-locate svg { width: 14px; height: 14px; }
+.btn-locate:hover { border-color: #f97316; color: #f97316; }
+.btn-locate:disabled { opacity: 0.5; cursor: default; }
+
+.planner-scroll {
+  overflow-y: auto;
+  flex: 1;
+  overscroll-behavior: contain;
+  padding: 0 0 8px;
+}
+.planner-section-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #64748b;
+  padding: 10px 16px 6px;
+}
+.planner-train-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 16px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  border-bottom: 1px solid #f8fafc;
+  transition: background 0.1s;
+}
+.planner-train-item:hover { background: #fff7ed; }
+.planner-train-item--planned { opacity: 0.5; cursor: default; }
+.planner-train-times {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  width: 48px;
+  flex-shrink: 0;
+}
+.pt-dep { font-size: 14px; font-weight: 700; color: #1e293b; }
+.pt-arrow { font-size: 10px; color: #94a3b8; }
+.pt-arr { font-size: 12px; color: #64748b; }
+.planner-train-info { flex: 1; min-width: 0; }
+.pt-name { font-size: 13px; font-weight: 600; color: #1e293b; line-height: 1.3; }
+.pt-route { font-size: 11px; color: #64748b; margin-top: 1px; }
+.pt-check { font-size: 14px; color: #f97316; flex-shrink: 0; }
+
+.planner-empty {
+  padding: 20px 16px;
+  font-size: 13px;
+  color: #94a3b8;
+  line-height: 1.6;
+}
+.planner-hint { font-size: 12px; color: #cbd5e1; }
+
+.planner-legs { padding-top: 4px; }
+.planner-leg {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  padding: 9px 16px 9px 12px;
+  border-bottom: 1px solid #f8fafc;
+}
+.leg-stripe {
+  width: 3px;
+  border-radius: 2px;
+  background: var(--leg-color, #f97316);
+  flex-shrink: 0;
+  align-self: stretch;
+  min-height: 28px;
+}
+.leg-body { flex: 1; min-width: 0; }
+.leg-times { font-size: 12px; color: #64748b; margin-bottom: 1px; }
+.leg-dep { font-weight: 700; color: #1e293b; }
+.leg-arr { color: #64748b; }
+.leg-name { font-size: 13px; font-weight: 600; color: #1e293b; }
+.leg-route { font-size: 11px; color: #94a3b8; margin-top: 1px; }
+.btn-remove-leg {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: #f1f5f9;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  align-self: center;
+  transition: background 0.1s;
+}
+.btn-remove-leg svg { width: 11px; height: 11px; }
+.btn-remove-leg:hover { background: #fee2e2; color: #dc2626; }
+
+.btn-add-plan {
+  background: #fff7ed;
+  border-color: #fed7aa;
+  color: #c2410c;
+  font-weight: 600;
+}
+.btn-add-plan:hover { background: #ffedd5; border-color: #f97316; color: #9a3412; }
+.badge-in-plan {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 10px;
+  background: #fff7ed;
+  border: 1.5px solid #fed7aa;
+  font-size: 13px;
+  font-weight: 600;
+  color: #f97316;
+}
+
 /* ── Desktop ── */
 @media (min-width: 640px) {
   .list-panel {
@@ -1147,6 +1623,14 @@ html, body {
     width: 400px;
     border-radius: 16px;
     max-height: 76vh;
+  }
+  .planner-panel {
+    left: auto;
+    right: 16px;
+    bottom: 16px;
+    width: 400px;
+    border-radius: 16px;
+    max-height: 82vh;
   }
   .panel-enter-from,
   .panel-leave-to {

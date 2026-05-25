@@ -16,7 +16,8 @@
         "stationen": [
           "London",
           "Paris"
-        ]
+        ],
+        "aufpreis_eur": 35
       },
       "geometry": {
         "type": "LineString",
@@ -46,7 +47,8 @@
         "stationen": [
           "London",
           "Brüssel"
-        ]
+        ],
+        "aufpreis_eur": 35
       },
       "geometry": {
         "type": "LineString",
@@ -77,7 +79,8 @@
           "London",
           "Brüssel",
           "Amsterdam"
-        ]
+        ],
+        "aufpreis_eur": 35
       },
       "geometry": {
         "type": "LineString",
@@ -112,7 +115,8 @@
           "Paris",
           "Brüssel",
           "Amsterdam"
-        ]
+        ],
+        "aufpreis_eur": 27
       },
       "geometry": {
         "type": "LineString",
@@ -147,7 +151,8 @@
           "Paris",
           "Brüssel",
           "Aachen"
-        ]
+        ],
+        "aufpreis_eur": 27
       },
       "geometry": {
         "type": "LineString",
@@ -184,7 +189,8 @@
           "Aachen",
           "Duisburg",
           "Dortmund"
-        ]
+        ],
+        "aufpreis_eur": 27
       },
       "geometry": {
         "type": "LineString",
@@ -306,7 +312,8 @@
           "Erfurt",
           "Halle (Saale)",
           "Berlin"
-        ]
+        ],
+        "aufpreis_eur": 20
       },
       "geometry": {
         "type": "LineString",
@@ -510,7 +517,8 @@
           "Paris",
           "Carcassonne",
           "Barcelona"
-        ]
+        ],
+        "aufpreis_eur": 25
       },
       "geometry": {
         "type": "LineString",
@@ -545,7 +553,8 @@
           "Paris",
           "Delémont",
           "Zürich"
-        ]
+        ],
+        "aufpreis_eur": 25
       },
       "geometry": {
         "type": "LineString",
@@ -579,7 +588,8 @@
         "stationen": [
           "Paris",
           "Genf"
-        ]
+        ],
+        "aufpreis_eur": 25
       },
       "geometry": {
         "type": "LineString",
@@ -609,7 +619,8 @@
         "stationen": [
           "Paris",
           "Basel"
-        ]
+        ],
+        "aufpreis_eur": 25
       },
       "geometry": {
         "type": "LineString",
@@ -640,7 +651,8 @@
           "Paris",
           "Straßburg",
           "Stuttgart"
-        ]
+        ],
+        "aufpreis_eur": 20
       },
       "geometry": {
         "type": "LineString",
@@ -676,7 +688,8 @@
           "Straßburg",
           "Stuttgart",
           "München"
-        ]
+        ],
+        "aufpreis_eur": 20
       },
       "geometry": {
         "type": "LineString",
@@ -718,7 +731,8 @@
           "Arles",
           "Marseille",
           "(5.3698,43.2965)"
-        ]
+        ],
+        "aufpreis_eur": 20
       },
       "geometry": {
         "type": "LineString",
@@ -755,8 +769,7 @@
         "betreiber": "Trenitalia / SNCF",
         "tageszeit": "Tag",
         "dauer": "ca. 7h",
-        "interrail": "aufpreis",
-        "buchung_url": "https://www.sncf-connect.com/",
+        "interrail": "nein",
         "stationen": [
           "Paris",
           "Turin",
@@ -1647,7 +1660,8 @@
           "Salzburg",
           "München",
           "Hamburg"
-        ]
+        ],
+        "aufpreis_eur": 34
       },
       "geometry": {
         "type": "LineString",
@@ -1688,7 +1702,8 @@
           "München",
           "Frankfurt am Main",
           "Düsseldorf"
-        ]
+        ],
+        "aufpreis_eur": 34
       },
       "geometry": {
         "type": "LineString",
@@ -1734,7 +1749,8 @@
           "Prag",
           "Dresden",
           "Berlin"
-        ]
+        ],
+        "aufpreis_eur": 34
       },
       "geometry": {
         "type": "LineString",
@@ -1780,7 +1796,8 @@
           "München",
           "Frankfurt am Main",
           "Amsterdam"
-        ]
+        ],
+        "aufpreis_eur": 34
       },
       "geometry": {
         "type": "LineString",
@@ -1825,7 +1842,8 @@
           "Basel",
           "Frankfurt am Main",
           "Hamburg"
-        ]
+        ],
+        "aufpreis_eur": 34
       },
       "geometry": {
         "type": "LineString",
@@ -1866,7 +1884,8 @@
           "Basel",
           "Frankfurt am Main",
           "Amsterdam"
-        ]
+        ],
+        "aufpreis_eur": 34
       },
       "geometry": {
         "type": "LineString",
@@ -1908,7 +1927,8 @@
           "Salzburg",
           "Bruck a.d. Mur",
           "Wien"
-        ]
+        ],
+        "aufpreis_eur": 34
       },
       "geometry": {
         "type": "LineString",
@@ -1953,7 +1973,8 @@
           "Venedig",
           "Bologna",
           "Rom"
-        ]
+        ],
+        "aufpreis_eur": 34
       },
       "geometry": {
         "type": "LineString",
@@ -1997,7 +2018,8 @@
           "Steyr",
           "Innsbruck",
           "Mailand"
-        ]
+        ],
+        "aufpreis_eur": 34
       },
       "geometry": {
         "type": "LineString",
@@ -2041,7 +2063,8 @@
           "Frankfurt am Main",
           "Salzburg",
           "Wien"
-        ]
+        ],
+        "aufpreis_eur": 34
       },
       "geometry": {
         "type": "LineString",
@@ -2083,7 +2106,8 @@
           "Budapest",
           "Szolnok",
           "Bukarest"
-        ]
+        ],
+        "aufpreis_eur": 34
       },
       "geometry": {
         "type": "LineString",
@@ -2129,7 +2153,8 @@
           "Uschhorod",
           "Lemberg",
           "Kiew"
-        ]
+        ],
+        "aufpreis_eur": 34
       },
       "geometry": {
         "type": "LineString",
@@ -2178,7 +2203,8 @@
           "Aachen",
           "Leinefelde",
           "Berlin"
-        ]
+        ],
+        "aufpreis_eur": 16
       },
       "geometry": {
         "type": "LineString",
@@ -2220,7 +2246,8 @@
           "Aachen",
           "Leinefelde",
           "Berlin"
-        ]
+        ],
+        "aufpreis_eur": 16
       },
       "geometry": {
         "type": "LineString",
@@ -2267,7 +2294,8 @@
           "Simbach am Inn",
           "Salzburg",
           "Wien"
-        ]
+        ],
+        "aufpreis_eur": 14
       },
       "geometry": {
         "type": "LineString",
@@ -2320,7 +2348,8 @@
           "Kopenhagen",
           "Malmö",
           "Stockholm"
-        ]
+        ],
+        "aufpreis_eur": 15
       },
       "geometry": {
         "type": "LineString",
@@ -2513,7 +2542,8 @@
           "Budapest",
           "Krakau",
           "Warschau"
-        ]
+        ],
+        "aufpreis_eur": 10
       },
       "geometry": {
         "type": "LineString",
@@ -2556,7 +2586,8 @@
           "Klausenburg",
           "Kronstadt",
           "Bukarest"
-        ]
+        ],
+        "aufpreis_eur": 10
       },
       "geometry": {
         "type": "LineString",
@@ -3072,7 +3103,8 @@
           "Laibach",
           "Postojna",
           "Rijeka"
-        ]
+        ],
+        "aufpreis_eur": 10
       },
       "geometry": {
         "type": "LineString",
@@ -3116,7 +3148,8 @@
           "Budapest",
           "Zagreb",
           "Split"
-        ]
+        ],
+        "aufpreis_eur": 10
       },
       "geometry": {
         "type": "LineString",
@@ -3152,7 +3185,8 @@
           "Budapest",
           "Zagreb",
           "Rijeka"
-        ]
+        ],
+        "aufpreis_eur": 10
       },
       "geometry": {
         "type": "LineString",
@@ -3246,6 +3280,114 @@
             28.8257,
             47.0105
           ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.7522,
+            59.9139
+          ],
+          [
+            10.9301,
+            59.2177
+          ],
+          [
+            11.3878,
+            59.1246
+          ],
+          [
+            11.93,
+            58.9
+          ],
+          [
+            11.9746,
+            57.7089
+          ],
+          [
+            13.55,
+            58.2
+          ],
+          [
+            15.105,
+            59.067
+          ],
+          [
+            17.625,
+            59.196
+          ],
+          [
+            18.0686,
+            59.3293
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Oslo – Stockholm",
+        "typ": "EuroCity",
+        "zuggattung": "IC/InterCity",
+        "betreiber": "SJ / Vy",
+        "tageszeit": "Tag",
+        "dauer": "ca. 5h 40min",
+        "interrail": "aufpreis",
+        "aufpreis_eur": 6,
+        "bemerkung": "Pflichtreservierung für Interrailpässe (~6 €). Mehrere Verbindungen täglich.",
+        "buchung_url": "https://www.sj.se/en",
+        "stationen": [
+          "Oslo",
+          "Halden",
+          "Göteborg",
+          "Skövde",
+          "Stockholm"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.7522,
+            59.9139
+          ],
+          [
+            10.9301,
+            59.2177
+          ],
+          [
+            11.3878,
+            59.1246
+          ],
+          [
+            11.93,
+            58.9
+          ],
+          [
+            11.9746,
+            57.7089
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Oslo – Göteborg",
+        "typ": "EuroCity",
+        "zuggattung": "InterCity",
+        "betreiber": "Vy",
+        "tageszeit": "Tag",
+        "dauer": "ca. 3h 40min",
+        "interrail": "ja",
+        "bemerkung": null,
+        "buchung_url": "https://www.vy.no/en",
+        "stationen": [
+          "Oslo",
+          "Fredrikstad",
+          "Halden",
+          "Göteborg"
         ]
       }
     }

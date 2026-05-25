@@ -1,0 +1,416 @@
+{
+  "Wien – Amsterdam (Nightjet)": {
+    "hin": {
+      "tage": ["Mo","Di","Mi","Do","Fr","Sa","So"],
+      "stops": [
+        {"name": "Wien", "dep": "18:36"},
+        {"name": "Linz", "dep": "20:00"},
+        {"name": "Passau", "dep": "21:10"},
+        {"name": "Nürnberg", "dep": "23:30"},
+        {"name": "Köln", "dep": "03:30"},
+        {"name": "Düsseldorf", "dep": "04:10"},
+        {"name": "Amsterdam", "arr": "09:59"}
+      ]
+    },
+    "zurück": {
+      "tage": ["Mo","Di","Mi","Do","Fr","Sa","So"],
+      "stops": [
+        {"name": "Amsterdam", "dep": "18:01"},
+        {"name": "Düsseldorf", "dep": "22:00"},
+        {"name": "Köln", "dep": "22:45"},
+        {"name": "Nürnberg", "dep": "01:30"},
+        {"name": "Passau", "dep": "04:00"},
+        {"name": "Linz", "dep": "05:30"},
+        {"name": "Wien", "arr": "09:48"}
+      ]
+    }
+  },
+  "Wien – Hamburg (Nightjet)": {
+    "hin": {
+      "tage": ["Mo","Di","Mi","Do","Fr","Sa","So"],
+      "stops": [
+        {"name": "Wien", "dep": "20:10"},
+        {"name": "Linz", "dep": "22:10"},
+        {"name": "Passau", "dep": "23:15"},
+        {"name": "Nürnberg", "dep": "01:30"},
+        {"name": "Würzburg", "dep": "02:40"},
+        {"name": "Hannover", "dep": "06:00"},
+        {"name": "Hamburg", "arr": "08:30"}
+      ]
+    },
+    "zurück": {
+      "tage": ["Mo","Di","Mi","Do","Fr","Sa","So"],
+      "stops": [
+        {"name": "Hamburg", "dep": "21:30"},
+        {"name": "Hannover", "dep": "23:30"},
+        {"name": "Würzburg", "dep": "02:50"},
+        {"name": "Nürnberg", "dep": "04:00"},
+        {"name": "Passau", "dep": "06:20"},
+        {"name": "Linz", "dep": "07:25"},
+        {"name": "Wien", "arr": "09:30"}
+      ]
+    }
+  },
+  "Wien – Berlin (Nightjet)": {
+    "hin": {
+      "tage": ["Mo","Di","Mi","Do","Fr","Sa","So"],
+      "stops": [
+        {"name": "Wien", "dep": "22:10"},
+        {"name": "Prag", "dep": "03:00"},
+        {"name": "Dresden", "dep": "06:30"},
+        {"name": "Berlin", "arr": "09:30"}
+      ]
+    },
+    "zurück": {
+      "tage": ["Mo","Di","Mi","Do","Fr","Sa","So"],
+      "stops": [
+        {"name": "Berlin", "dep": "19:21"},
+        {"name": "Dresden", "dep": "22:00"},
+        {"name": "Prag", "dep": "01:30"},
+        {"name": "Wien", "arr": "06:00"}
+      ]
+    }
+  },
+  "Brüssel – Wien (Nightjet)": {
+    "hin": {
+      "tage": ["Mo","Mi","Fr"],
+      "stops": [
+        {"name": "Brüssel", "dep": "20:00"},
+        {"name": "Köln", "dep": "22:30"},
+        {"name": "München", "dep": "02:30"},
+        {"name": "Salzburg", "dep": "04:30"},
+        {"name": "Linz", "dep": "05:30"},
+        {"name": "Wien", "arr": "07:30"}
+      ]
+    },
+    "zurück": {
+      "tage": ["Di","Do","So"],
+      "stops": [
+        {"name": "Wien", "dep": "18:13"},
+        {"name": "Salzburg", "dep": "20:30"},
+        {"name": "München", "dep": "22:30"},
+        {"name": "Köln", "dep": "02:30"},
+        {"name": "Brüssel", "arr": "05:30"}
+      ]
+    }
+  },
+  "Zürich – Amsterdam (Nightjet)": {
+    "hin": {
+      "tage": ["Mo","Di","Mi","Do","Fr","Sa","So"],
+      "stops": [
+        {"name": "Zürich", "dep": "21:59"},
+        {"name": "Basel", "dep": "23:00"},
+        {"name": "Köln", "dep": "03:30"},
+        {"name": "Düsseldorf", "dep": "04:15"},
+        {"name": "Amsterdam", "arr": "08:59"}
+      ]
+    },
+    "zurück": {
+      "tage": ["Mo","Di","Mi","Do","Fr","Sa","So"],
+      "stops": [
+        {"name": "Amsterdam", "dep": "21:01"},
+        {"name": "Köln", "dep": "00:30"},
+        {"name": "Basel", "dep": "04:40"},
+        {"name": "Zürich", "arr": "08:05"}
+      ]
+    }
+  },
+  "Brüssel – Berlin (European Sleeper)": {
+    "hin": {
+      "tage": ["Mo","Mi","Fr"],
+      "stops": [
+        {"name": "Brüssel", "dep": "19:22"},
+        {"name": "Amsterdam", "dep": "22:34"},
+        {"name": "Berlin", "dep": "05:30"},
+        {"name": "Dresden", "dep": "07:30"},
+        {"name": "Prag", "arr": "10:56"}
+      ]
+    },
+    "zurück": {
+      "tage": ["Di","Do","So"],
+      "stops": [
+        {"name": "Prag", "dep": "18:05"},
+        {"name": "Dresden", "dep": "20:40"},
+        {"name": "Berlin", "dep": "22:30"},
+        {"name": "Amsterdam", "dep": "05:35"},
+        {"name": "Brüssel", "arr": "10:30"}
+      ]
+    }
+  },
+  "Hamburg – Stockholm (Nachtzug)": {
+    "hin": {
+      "tage": ["Mo","Di","Mi","Do","Fr","Sa"],
+      "stops": [
+        {"name": "Hamburg", "dep": "22:30"},
+        {"name": "Kopenhagen", "dep": "05:00"},
+        {"name": "Malmö", "dep": "06:00"},
+        {"name": "Stockholm", "arr": "11:45"}
+      ]
+    },
+    "zurück": {
+      "tage": ["So","Mo","Di","Mi","Do","Fr"],
+      "stops": [
+        {"name": "Stockholm", "dep": "16:20"},
+        {"name": "Malmö", "dep": "22:00"},
+        {"name": "Kopenhagen", "dep": "23:00"},
+        {"name": "Hamburg", "arr": "05:00"}
+      ]
+    }
+  },
+  "London – Paris": {
+    "hin": {
+      "tage": ["Mo","Di","Mi","Do","Fr","Sa","So"],
+      "abfahrten": [
+        {"stops": [{"name": "London", "dep": "06:01"}, {"name": "Paris", "arr": "09:17"}]},
+        {"stops": [{"name": "London", "dep": "07:01"}, {"name": "Paris", "arr": "10:18"}]},
+        {"stops": [{"name": "London", "dep": "08:01"}, {"name": "Paris", "arr": "11:17"}]},
+        {"stops": [{"name": "London", "dep": "09:01"}, {"name": "Paris", "arr": "12:17"}]},
+        {"stops": [{"name": "London", "dep": "11:01"}, {"name": "Paris", "arr": "14:17"}]},
+        {"stops": [{"name": "London", "dep": "13:01"}, {"name": "Paris", "arr": "16:17"}]},
+        {"stops": [{"name": "London", "dep": "15:01"}, {"name": "Paris", "arr": "18:17"}]},
+        {"stops": [{"name": "London", "dep": "17:01"}, {"name": "Paris", "arr": "20:17"}]},
+        {"stops": [{"name": "London", "dep": "19:01"}, {"name": "Paris", "arr": "22:17"}]}
+      ]
+    },
+    "zurück": {
+      "tage": ["Mo","Di","Mi","Do","Fr","Sa","So"],
+      "abfahrten": [
+        {"stops": [{"name": "Paris", "dep": "07:13"}, {"name": "London", "arr": "08:30"}]},
+        {"stops": [{"name": "Paris", "dep": "09:13"}, {"name": "London", "arr": "10:30"}]},
+        {"stops": [{"name": "Paris", "dep": "11:13"}, {"name": "London", "arr": "12:30"}]},
+        {"stops": [{"name": "Paris", "dep": "13:13"}, {"name": "London", "arr": "14:30"}]},
+        {"stops": [{"name": "Paris", "dep": "15:13"}, {"name": "London", "arr": "16:30"}]},
+        {"stops": [{"name": "Paris", "dep": "17:13"}, {"name": "London", "arr": "18:30"}]},
+        {"stops": [{"name": "Paris", "dep": "19:13"}, {"name": "London", "arr": "20:30"}]},
+        {"stops": [{"name": "Paris", "dep": "20:22"}, {"name": "London", "arr": "21:39"}]}
+      ]
+    }
+  },
+  "London – Brüssel": {
+    "hin": {
+      "tage": ["Mo","Di","Mi","Do","Fr","Sa","So"],
+      "abfahrten": [
+        {"stops": [{"name": "London", "dep": "06:16"}, {"name": "Brüssel", "arr": "09:05"}]},
+        {"stops": [{"name": "London", "dep": "08:16"}, {"name": "Brüssel", "arr": "11:05"}]},
+        {"stops": [{"name": "London", "dep": "10:16"}, {"name": "Brüssel", "arr": "13:05"}]},
+        {"stops": [{"name": "London", "dep": "13:16"}, {"name": "Brüssel", "arr": "16:05"}]},
+        {"stops": [{"name": "London", "dep": "16:16"}, {"name": "Brüssel", "arr": "19:05"}]},
+        {"stops": [{"name": "London", "dep": "19:34"}, {"name": "Brüssel", "arr": "22:05"}]}
+      ]
+    },
+    "zurück": {
+      "tage": ["Mo","Di","Mi","Do","Fr","Sa","So"],
+      "abfahrten": [
+        {"stops": [{"name": "Brüssel", "dep": "07:59"}, {"name": "London", "arr": "09:30"}]},
+        {"stops": [{"name": "Brüssel", "dep": "09:59"}, {"name": "London", "arr": "11:30"}]},
+        {"stops": [{"name": "Brüssel", "dep": "12:59"}, {"name": "London", "arr": "14:30"}]},
+        {"stops": [{"name": "Brüssel", "dep": "15:59"}, {"name": "London", "arr": "17:30"}]},
+        {"stops": [{"name": "Brüssel", "dep": "17:59"}, {"name": "London", "arr": "19:30"}]},
+        {"stops": [{"name": "Brüssel", "dep": "19:59"}, {"name": "London", "arr": "21:30"}]}
+      ]
+    }
+  },
+  "Paris – Amsterdam": {
+    "hin": {
+      "tage": ["Mo","Di","Mi","Do","Fr","Sa","So"],
+      "abfahrten": [
+        {"stops": [{"name": "Paris", "dep": "06:06"}, {"name": "Brüssel", "dep": "07:30"}, {"name": "Amsterdam", "arr": "09:26"}]},
+        {"stops": [{"name": "Paris", "dep": "08:06"}, {"name": "Brüssel", "dep": "09:30"}, {"name": "Amsterdam", "arr": "11:26"}]},
+        {"stops": [{"name": "Paris", "dep": "10:06"}, {"name": "Brüssel", "dep": "11:30"}, {"name": "Amsterdam", "arr": "13:26"}]},
+        {"stops": [{"name": "Paris", "dep": "12:06"}, {"name": "Brüssel", "dep": "13:30"}, {"name": "Amsterdam", "arr": "15:26"}]},
+        {"stops": [{"name": "Paris", "dep": "14:06"}, {"name": "Brüssel", "dep": "15:30"}, {"name": "Amsterdam", "arr": "17:26"}]},
+        {"stops": [{"name": "Paris", "dep": "16:06"}, {"name": "Brüssel", "dep": "17:30"}, {"name": "Amsterdam", "arr": "19:26"}]},
+        {"stops": [{"name": "Paris", "dep": "18:06"}, {"name": "Brüssel", "dep": "19:30"}, {"name": "Amsterdam", "arr": "21:26"}]},
+        {"stops": [{"name": "Paris", "dep": "20:25"}, {"name": "Brüssel", "dep": "21:52"}, {"name": "Amsterdam", "arr": "23:46"}]}
+      ]
+    },
+    "zurück": {
+      "tage": ["Mo","Di","Mi","Do","Fr","Sa","So"],
+      "abfahrten": [
+        {"stops": [{"name": "Amsterdam", "dep": "07:11"}, {"name": "Brüssel", "dep": "08:45"}, {"name": "Paris", "arr": "10:32"}]},
+        {"stops": [{"name": "Amsterdam", "dep": "09:11"}, {"name": "Brüssel", "dep": "10:45"}, {"name": "Paris", "arr": "12:32"}]},
+        {"stops": [{"name": "Amsterdam", "dep": "11:11"}, {"name": "Brüssel", "dep": "12:45"}, {"name": "Paris", "arr": "14:32"}]},
+        {"stops": [{"name": "Amsterdam", "dep": "13:11"}, {"name": "Brüssel", "dep": "14:45"}, {"name": "Paris", "arr": "16:32"}]},
+        {"stops": [{"name": "Amsterdam", "dep": "15:11"}, {"name": "Brüssel", "dep": "16:45"}, {"name": "Paris", "arr": "18:32"}]},
+        {"stops": [{"name": "Amsterdam", "dep": "17:11"}, {"name": "Brüssel", "dep": "18:45"}, {"name": "Paris", "arr": "20:32"}]},
+        {"stops": [{"name": "Amsterdam", "dep": "19:13"}, {"name": "Brüssel", "dep": "20:47"}, {"name": "Paris", "arr": "22:32"}]}
+      ]
+    }
+  },
+  "Hamburg – Kopenhagen": {
+    "hin": {
+      "tage": ["Mo","Di","Mi","Do","Fr","Sa","So"],
+      "abfahrten": [
+        {"stops": [{"name": "Hamburg", "dep": "06:52"}, {"name": "Flensburg", "dep": "08:30"}, {"name": "Odense", "dep": "10:20"}, {"name": "Kopenhagen", "arr": "11:52"}]},
+        {"stops": [{"name": "Hamburg", "dep": "10:52"}, {"name": "Flensburg", "dep": "12:30"}, {"name": "Odense", "dep": "14:20"}, {"name": "Kopenhagen", "arr": "15:52"}]},
+        {"stops": [{"name": "Hamburg", "dep": "14:52"}, {"name": "Flensburg", "dep": "16:30"}, {"name": "Odense", "dep": "18:20"}, {"name": "Kopenhagen", "arr": "19:52"}]},
+        {"stops": [{"name": "Hamburg", "dep": "18:52"}, {"name": "Flensburg", "dep": "20:30"}, {"name": "Odense", "dep": "22:20"}, {"name": "Kopenhagen", "arr": "23:52"}]}
+      ]
+    },
+    "zurück": {
+      "tage": ["Mo","Di","Mi","Do","Fr","Sa","So"],
+      "abfahrten": [
+        {"stops": [{"name": "Kopenhagen", "dep": "06:22"}, {"name": "Odense", "dep": "08:10"}, {"name": "Flensburg", "dep": "10:05"}, {"name": "Hamburg", "arr": "11:47"}]},
+        {"stops": [{"name": "Kopenhagen", "dep": "10:22"}, {"name": "Odense", "dep": "12:10"}, {"name": "Flensburg", "dep": "14:05"}, {"name": "Hamburg", "arr": "15:47"}]},
+        {"stops": [{"name": "Kopenhagen", "dep": "14:22"}, {"name": "Odense", "dep": "16:10"}, {"name": "Flensburg", "dep": "18:05"}, {"name": "Hamburg", "arr": "19:47"}]},
+        {"stops": [{"name": "Kopenhagen", "dep": "18:22"}, {"name": "Odense", "dep": "20:10"}, {"name": "Flensburg", "dep": "22:05"}, {"name": "Hamburg", "arr": "23:47"}]}
+      ]
+    }
+  },
+  "Amsterdam – Berlin": {
+    "hin": {
+      "tage": ["Mo","Di","Mi","Do","Fr","Sa","So"],
+      "abfahrten": [
+        {"stops": [{"name": "Amsterdam", "dep": "06:00"}, {"name": "Hannover", "dep": "09:50"}, {"name": "Berlin", "arr": "11:42"}]},
+        {"stops": [{"name": "Amsterdam", "dep": "08:00"}, {"name": "Hannover", "dep": "11:50"}, {"name": "Berlin", "arr": "13:42"}]},
+        {"stops": [{"name": "Amsterdam", "dep": "10:00"}, {"name": "Hannover", "dep": "13:50"}, {"name": "Berlin", "arr": "15:42"}]},
+        {"stops": [{"name": "Amsterdam", "dep": "12:00"}, {"name": "Hannover", "dep": "15:50"}, {"name": "Berlin", "arr": "17:42"}]},
+        {"stops": [{"name": "Amsterdam", "dep": "14:00"}, {"name": "Hannover", "dep": "17:50"}, {"name": "Berlin", "arr": "19:42"}]},
+        {"stops": [{"name": "Amsterdam", "dep": "16:00"}, {"name": "Hannover", "dep": "19:50"}, {"name": "Berlin", "arr": "21:42"}]}
+      ]
+    },
+    "zurück": {
+      "tage": ["Mo","Di","Mi","Do","Fr","Sa","So"],
+      "abfahrten": [
+        {"stops": [{"name": "Berlin", "dep": "06:14"}, {"name": "Hannover", "dep": "07:50"}, {"name": "Amsterdam", "arr": "11:59"}]},
+        {"stops": [{"name": "Berlin", "dep": "08:14"}, {"name": "Hannover", "dep": "09:50"}, {"name": "Amsterdam", "arr": "13:59"}]},
+        {"stops": [{"name": "Berlin", "dep": "10:14"}, {"name": "Hannover", "dep": "11:50"}, {"name": "Amsterdam", "arr": "15:59"}]},
+        {"stops": [{"name": "Berlin", "dep": "12:14"}, {"name": "Hannover", "dep": "13:50"}, {"name": "Amsterdam", "arr": "17:59"}]},
+        {"stops": [{"name": "Berlin", "dep": "14:14"}, {"name": "Hannover", "dep": "15:50"}, {"name": "Amsterdam", "arr": "19:59"}]},
+        {"stops": [{"name": "Berlin", "dep": "16:14"}, {"name": "Hannover", "dep": "17:50"}, {"name": "Amsterdam", "arr": "21:59"}]}
+      ]
+    }
+  },
+  "Wien – Budapest": {
+    "hin": {
+      "tage": ["Mo","Di","Mi","Do","Fr","Sa","So"],
+      "abfahrten": [
+        {"stops": [{"name": "Wien", "dep": "07:39"}, {"name": "Budapest", "arr": "09:52"}]},
+        {"stops": [{"name": "Wien", "dep": "09:39"}, {"name": "Budapest", "arr": "11:52"}]},
+        {"stops": [{"name": "Wien", "dep": "11:39"}, {"name": "Budapest", "arr": "13:52"}]},
+        {"stops": [{"name": "Wien", "dep": "13:39"}, {"name": "Budapest", "arr": "15:52"}]},
+        {"stops": [{"name": "Wien", "dep": "15:39"}, {"name": "Budapest", "arr": "17:52"}]},
+        {"stops": [{"name": "Wien", "dep": "17:39"}, {"name": "Budapest", "arr": "19:52"}]},
+        {"stops": [{"name": "Wien", "dep": "19:39"}, {"name": "Budapest", "arr": "21:52"}]}
+      ]
+    },
+    "zurück": {
+      "tage": ["Mo","Di","Mi","Do","Fr","Sa","So"],
+      "abfahrten": [
+        {"stops": [{"name": "Budapest", "dep": "07:40"}, {"name": "Wien", "arr": "09:55"}]},
+        {"stops": [{"name": "Budapest", "dep": "09:40"}, {"name": "Wien", "arr": "11:55"}]},
+        {"stops": [{"name": "Budapest", "dep": "11:40"}, {"name": "Wien", "arr": "13:55"}]},
+        {"stops": [{"name": "Budapest", "dep": "13:40"}, {"name": "Wien", "arr": "15:55"}]},
+        {"stops": [{"name": "Budapest", "dep": "15:40"}, {"name": "Wien", "arr": "17:55"}]},
+        {"stops": [{"name": "Budapest", "dep": "17:40"}, {"name": "Wien", "arr": "19:55"}]},
+        {"stops": [{"name": "Budapest", "dep": "19:40"}, {"name": "Wien", "arr": "21:55"}]}
+      ]
+    }
+  },
+  "Wien – München": {
+    "hin": {
+      "tage": ["Mo","Di","Mi","Do","Fr","Sa","So"],
+      "abfahrten": [
+        {"stops": [{"name": "Wien", "dep": "07:28"}, {"name": "Salzburg", "dep": "08:59"}, {"name": "München", "arr": "11:32"}]},
+        {"stops": [{"name": "Wien", "dep": "09:28"}, {"name": "Salzburg", "dep": "11:01"}, {"name": "München", "arr": "13:32"}]},
+        {"stops": [{"name": "Wien", "dep": "11:28"}, {"name": "Salzburg", "dep": "12:59"}, {"name": "München", "arr": "15:32"}]},
+        {"stops": [{"name": "Wien", "dep": "13:28"}, {"name": "Salzburg", "dep": "14:59"}, {"name": "München", "arr": "17:32"}]},
+        {"stops": [{"name": "Wien", "dep": "15:28"}, {"name": "Salzburg", "dep": "16:59"}, {"name": "München", "arr": "19:32"}]},
+        {"stops": [{"name": "Wien", "dep": "17:28"}, {"name": "Salzburg", "dep": "18:59"}, {"name": "München", "arr": "21:32"}]},
+        {"stops": [{"name": "Wien", "dep": "19:28"}, {"name": "Salzburg", "dep": "20:59"}, {"name": "München", "arr": "23:32"}]}
+      ]
+    },
+    "zurück": {
+      "tage": ["Mo","Di","Mi","Do","Fr","Sa","So"],
+      "abfahrten": [
+        {"stops": [{"name": "München", "dep": "07:28"}, {"name": "Salzburg", "dep": "08:58"}, {"name": "Wien", "arr": "10:21"}]},
+        {"stops": [{"name": "München", "dep": "09:28"}, {"name": "Salzburg", "dep": "10:58"}, {"name": "Wien", "arr": "12:21"}]},
+        {"stops": [{"name": "München", "dep": "11:28"}, {"name": "Salzburg", "dep": "12:58"}, {"name": "Wien", "arr": "14:21"}]},
+        {"stops": [{"name": "München", "dep": "13:28"}, {"name": "Salzburg", "dep": "14:58"}, {"name": "Wien", "arr": "16:21"}]},
+        {"stops": [{"name": "München", "dep": "15:28"}, {"name": "Salzburg", "dep": "16:58"}, {"name": "Wien", "arr": "18:21"}]},
+        {"stops": [{"name": "München", "dep": "17:28"}, {"name": "Salzburg", "dep": "18:58"}, {"name": "Wien", "arr": "20:21"}]},
+        {"stops": [{"name": "München", "dep": "19:28"}, {"name": "Salzburg", "dep": "20:58"}, {"name": "Wien", "arr": "22:21"}]}
+      ]
+    }
+  },
+  "Wien – Zürich": {
+    "hin": {
+      "tage": ["Mo","Di","Mi","Do","Fr","Sa","So"],
+      "abfahrten": [
+        {"stops": [{"name": "Wien", "dep": "07:41"}, {"name": "Salzburg", "dep": "09:30"}, {"name": "Innsbruck", "dep": "11:09"}, {"name": "Zürich", "arr": "15:35"}]},
+        {"stops": [{"name": "Wien", "dep": "09:41"}, {"name": "Salzburg", "dep": "11:30"}, {"name": "Innsbruck", "dep": "13:09"}, {"name": "Zürich", "arr": "17:35"}]},
+        {"stops": [{"name": "Wien", "dep": "11:41"}, {"name": "Salzburg", "dep": "13:30"}, {"name": "Innsbruck", "dep": "15:09"}, {"name": "Zürich", "arr": "19:35"}]},
+        {"stops": [{"name": "Wien", "dep": "13:41"}, {"name": "Salzburg", "dep": "15:30"}, {"name": "Innsbruck", "dep": "17:09"}, {"name": "Zürich", "arr": "21:35"}]}
+      ]
+    },
+    "zurück": {
+      "tage": ["Mo","Di","Mi","Do","Fr","Sa","So"],
+      "abfahrten": [
+        {"stops": [{"name": "Zürich", "dep": "07:01"}, {"name": "Innsbruck", "dep": "09:50"}, {"name": "Salzburg", "dep": "11:30"}, {"name": "Wien", "arr": "13:21"}]},
+        {"stops": [{"name": "Zürich", "dep": "09:01"}, {"name": "Innsbruck", "dep": "11:50"}, {"name": "Salzburg", "dep": "13:30"}, {"name": "Wien", "arr": "15:21"}]},
+        {"stops": [{"name": "Zürich", "dep": "11:01"}, {"name": "Innsbruck", "dep": "13:50"}, {"name": "Salzburg", "dep": "15:30"}, {"name": "Wien", "arr": "17:21"}]},
+        {"stops": [{"name": "Zürich", "dep": "13:01"}, {"name": "Innsbruck", "dep": "15:50"}, {"name": "Salzburg", "dep": "17:30"}, {"name": "Wien", "arr": "19:21"}]}
+      ]
+    }
+  },
+  "Paris – Barcelona": {
+    "hin": {
+      "tage": ["Mo","Di","Mi","Do","Fr","Sa","So"],
+      "abfahrten": [
+        {"stops": [{"name": "Paris", "dep": "06:42"}, {"name": "Perpignan", "dep": "10:30"}, {"name": "Barcelona", "arr": "13:25"}]},
+        {"stops": [{"name": "Paris", "dep": "10:42"}, {"name": "Perpignan", "dep": "14:30"}, {"name": "Barcelona", "arr": "17:25"}]},
+        {"stops": [{"name": "Paris", "dep": "14:42"}, {"name": "Perpignan", "dep": "18:25"}, {"name": "Barcelona", "arr": "21:32"}]}
+      ]
+    },
+    "zurück": {
+      "tage": ["Mo","Di","Mi","Do","Fr","Sa","So"],
+      "abfahrten": [
+        {"stops": [{"name": "Barcelona", "dep": "07:00"}, {"name": "Perpignan", "dep": "08:25"}, {"name": "Paris", "arr": "13:47"}]},
+        {"stops": [{"name": "Barcelona", "dep": "11:00"}, {"name": "Perpignan", "dep": "12:25"}, {"name": "Paris", "arr": "17:47"}]},
+        {"stops": [{"name": "Barcelona", "dep": "15:00"}, {"name": "Perpignan", "dep": "16:25"}, {"name": "Paris", "arr": "21:47"}]}
+      ]
+    }
+  },
+  "Oslo – Stockholm": {
+    "hin": {
+      "tage": ["Mo","Di","Mi","Do","Fr","Sa","So"],
+      "abfahrten": [
+        {"stops": [{"name": "Oslo", "dep": "05:56"}, {"name": "Halden", "dep": "07:05"}, {"name": "Göteborg", "dep": "09:00"}, {"name": "Stockholm", "arr": "11:30"}]},
+        {"stops": [{"name": "Oslo", "dep": "07:56"}, {"name": "Halden", "dep": "09:05"}, {"name": "Göteborg", "dep": "11:00"}, {"name": "Stockholm", "arr": "13:32"}]},
+        {"stops": [{"name": "Oslo", "dep": "10:56"}, {"name": "Halden", "dep": "12:05"}, {"name": "Göteborg", "dep": "14:00"}, {"name": "Stockholm", "arr": "16:37"}]},
+        {"stops": [{"name": "Oslo", "dep": "13:06"}, {"name": "Halden", "dep": "14:15"}, {"name": "Göteborg", "dep": "16:10"}, {"name": "Stockholm", "arr": "18:50"}]},
+        {"stops": [{"name": "Oslo", "dep": "16:52"}, {"name": "Halden", "dep": "18:01"}, {"name": "Göteborg", "dep": "19:56"}, {"name": "Stockholm", "arr": "22:24"}]}
+      ]
+    },
+    "zurück": {
+      "tage": ["Mo","Di","Mi","Do","Fr","Sa","So"],
+      "abfahrten": [
+        {"stops": [{"name": "Stockholm", "dep": "06:28"}, {"name": "Göteborg", "dep": "08:30"}, {"name": "Halden", "dep": "10:25"}, {"name": "Oslo", "arr": "12:00"}]},
+        {"stops": [{"name": "Stockholm", "dep": "08:25"}, {"name": "Göteborg", "dep": "10:30"}, {"name": "Halden", "dep": "12:25"}, {"name": "Oslo", "arr": "14:00"}]},
+        {"stops": [{"name": "Stockholm", "dep": "11:25"}, {"name": "Göteborg", "dep": "13:30"}, {"name": "Halden", "dep": "15:25"}, {"name": "Oslo", "arr": "17:00"}]},
+        {"stops": [{"name": "Stockholm", "dep": "14:25"}, {"name": "Göteborg", "dep": "16:30"}, {"name": "Halden", "dep": "18:25"}, {"name": "Oslo", "arr": "20:00"}]},
+        {"stops": [{"name": "Stockholm", "dep": "17:25"}, {"name": "Göteborg", "dep": "19:30"}, {"name": "Halden", "dep": "21:25"}, {"name": "Oslo", "arr": "23:00"}]}
+      ]
+    }
+  },
+  "Oslo – Göteborg": {
+    "hin": {
+      "tage": ["Mo","Di","Mi","Do","Fr","Sa","So"],
+      "abfahrten": [
+        {"stops": [{"name": "Oslo", "dep": "07:58"}, {"name": "Fredrikstad", "dep": "08:35"}, {"name": "Halden", "dep": "09:10"}, {"name": "Göteborg", "arr": "11:45"}]},
+        {"stops": [{"name": "Oslo", "dep": "10:58"}, {"name": "Fredrikstad", "dep": "11:35"}, {"name": "Halden", "dep": "12:10"}, {"name": "Göteborg", "arr": "14:45"}]},
+        {"stops": [{"name": "Oslo", "dep": "13:58"}, {"name": "Fredrikstad", "dep": "14:35"}, {"name": "Halden", "dep": "15:10"}, {"name": "Göteborg", "arr": "17:45"}]},
+        {"stops": [{"name": "Oslo", "dep": "16:58"}, {"name": "Fredrikstad", "dep": "17:35"}, {"name": "Halden", "dep": "18:10"}, {"name": "Göteborg", "arr": "20:45"}]}
+      ]
+    },
+    "zurück": {
+      "tage": ["Mo","Di","Mi","Do","Fr","Sa","So"],
+      "abfahrten": [
+        {"stops": [{"name": "Göteborg", "dep": "07:05"}, {"name": "Halden", "dep": "09:30"}, {"name": "Fredrikstad", "dep": "10:05"}, {"name": "Oslo", "arr": "11:00"}]},
+        {"stops": [{"name": "Göteborg", "dep": "10:05"}, {"name": "Halden", "dep": "12:30"}, {"name": "Fredrikstad", "dep": "13:05"}, {"name": "Oslo", "arr": "14:00"}]},
+        {"stops": [{"name": "Göteborg", "dep": "13:05"}, {"name": "Halden", "dep": "15:30"}, {"name": "Fredrikstad", "dep": "16:05"}, {"name": "Oslo", "arr": "17:00"}]},
+        {"stops": [{"name": "Göteborg", "dep": "16:05"}, {"name": "Halden", "dep": "18:30"}, {"name": "Fredrikstad", "dep": "19:05"}, {"name": "Oslo", "arr": "20:00"}]}
+      ]
+    }
+  }
+}
