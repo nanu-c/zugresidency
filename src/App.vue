@@ -96,18 +96,51 @@ const plannerTrains = computed(() => {
   return results.sort((a, b) => a.depTime.localeCompare(b.depTime))
 })
 
+// Trains reachable from the current planner city (null = no filter active)
+const reachableNames = computed(() => {
+  if (!plannerMode.value || !plannerCity.value) return null
+  const city = plannerCity.value.toLowerCase().trim()
+  const reachable = new Set()
+  for (const feature of trainFeatures.value) {
+    const name = feature.properties.name
+    if (plannedTrainNames.value.has(name)) { reachable.add(name); continue }
+    const tt = timetables.value[name]
+    if (tt) {
+      outer: for (const dir of ['hin', 'zurück']) {
+        const sched = tt[dir]
+        if (!sched) continue
+        const abfahrten = sched.abfahrten ?? (sched.stops ? [{ stops: sched.stops }] : [])
+        for (const fahrt of abfahrten) {
+          const idx = fahrt.stops.findIndex(s => {
+            const sn = s.name.toLowerCase()
+            return sn === city || sn.startsWith(city) || city.startsWith(sn)
+          })
+          if (idx >= 0 && idx < fahrt.stops.length - 1) { reachable.add(name); break outer }
+        }
+      }
+    } else {
+      const stationen = feature.properties.stationen ?? []
+      if (stationen.some(s => { const sn = s.toLowerCase(); return sn === city || sn.includes(city) || city.includes(sn) }))
+        reachable.add(name)
+    }
+  }
+  return reachable
+})
+
 function getStyle(feature) {
   const p = feature.properties
   const visible = visibleSet.value.has(feature)
   const isSel = selected.value?.name === p.name
   const isPlanned = plannedTrainNames.value.has(p.name)
+  const reachable = reachableNames.value  // null when planner inactive
+  const effectiveVisible = visible && (!reachable || reachable.has(p.name))
   if (isSel) return { color: '#f59e0b', weight: 6, opacity: 1, dashArray: null }
   if (isPlanned) return { color: '#f97316', weight: 5, opacity: 1, dashArray: null }
   return {
-    color: visible ? (TYPE_COLORS[p.typ] || '#888') : '#c8cdd6',
-    weight: visible ? 3 : 1.5,
-    opacity: visible ? 0.85 : 0.15,
-    dashArray: visible && p.tageszeit === 'Nacht' ? '8, 5' : null,
+    color: effectiveVisible ? (TYPE_COLORS[p.typ] || '#888') : '#c8cdd6',
+    weight: effectiveVisible ? 3 : 1.5,
+    opacity: effectiveVisible ? 0.85 : 0.15,
+    dashArray: effectiveVisible && p.tageszeit === 'Nacht' ? '8, 5' : null,
   }
 }
 
@@ -357,7 +390,7 @@ onMounted(async () => {
   initLayer(data)
 })
 
-watch([searchQuery, activeTypes, onlyInterrail, selected, plannerLegs], refreshStyles)
+watch([searchQuery, activeTypes, onlyInterrail, selected, plannerLegs, plannerMode, plannerCity], refreshStyles)
 </script>
 
 <template>
@@ -1574,6 +1607,13 @@ html, body {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+  position: sticky;
+  bottom: 0;
+  background: #fff;
+  padding-top: 10px;
+  padding-bottom: 16px;
+  border-top: 1px solid #f1f5f9;
+  margin-top: 4px;
 }
 
 .btn-action {
